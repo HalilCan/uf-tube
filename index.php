@@ -11,13 +11,15 @@
 <body>
     <div id="pageContainer">
         <div id="mastHeadContainer">
-        Hey
+        unfuckTube
         </div>
         <div id="sideNavContainer">
-
+            sideNav
         </div>
         <div id="mainSectionContainer">
-        
+            <div id="mainContentContainer">
+                Hello content
+            </div>
         </div>
     </div>
     
