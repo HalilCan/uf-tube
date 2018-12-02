@@ -18,7 +18,7 @@
 
         <div id="mastHeadContainer">
             <button class="navShowHide">
-                SideNav
+                <img src="assets/images/icons/menu.png">
             </button>
         </div>
 
