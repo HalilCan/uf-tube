@@ -10,21 +10,28 @@
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="assets/scripts/main.js"></script>
+    <script src="assets/scripts/commonActions.js"></script>
 
 </head>
 <body>
     <div id="pageContainer">
+    
         <div id="mastHeadContainer">
-        unfuckTube
+            <button onclick="toggleSidebar()" class="navShowHide">
+                SideNav
+            </button>
         </div>
+
         <div id="sideNavContainer">
             sideNav
         </div>
+
         <div id="mainSectionContainer">
             <div id="mainContentContainer">
                 Hello content
             </div>
         </div>
+
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
