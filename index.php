@@ -9,6 +9,14 @@
     <script src="scripts/main.js"></script>
 </head>
 <body>
+    <div id="pageContainer">
+        <div id="mastHeadContainer">
+        
+        </div>
+        <div id="sideNavContainer">
+            
+        </div>        
+    </div>
     
 </body>
 </html>
