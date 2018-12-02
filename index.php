@@ -15,14 +15,14 @@
 </head>
 <body>
     <div id="pageContainer">
-    
+
         <div id="mastHeadContainer">
-            <button onclick="toggleSidebar()" class="navShowHide">
+            <button class="navShowHide">
                 SideNav
             </button>
         </div>
 
-        <div id="sideNavContainer">
+        <div id="sideNavContainer" style="display: none;">
             sideNav
         </div>
 

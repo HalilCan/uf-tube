@@ -35,7 +35,7 @@ html, body {
     
     position: fixed;
     top: 0;
-    bottom: 0; /* these two attach the element to the top and bottom /* 
+    bottom: 0; /* these two attach the element to the top and bottom */ 
     
     display: flex;
     flex-direction: column;
@@ -48,4 +48,8 @@ html, body {
 
 #mainContentContainer {
     padding: 10px 30px;
+}
+
+.mainLeftPadding {
+    padding-left: 240px;
 }
