@@ -27,7 +27,10 @@
 
             <div class="searchBarContainer">
                 <form action="search.php" method="GET">
-
+                    <input type="text" class="searchBar" name="term" placeholder="Search">
+                    <button class="searchButton">
+                        <img src="assets/images/icons/search.png" title="search" alt="Search button">
+                    </button>
                 </form>
             </div>
         </div>
