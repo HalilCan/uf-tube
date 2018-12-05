@@ -4,6 +4,10 @@ html, body {
     padding: 0;
 }
 
+a:hover {
+    text-decoration: none; /* TODO: this doesn't work with the upload button, for some reason */
+}
+
 #pageContainer {
     height: 100%;
     width: 100%;
