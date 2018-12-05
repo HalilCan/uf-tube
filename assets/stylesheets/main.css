@@ -68,14 +68,14 @@ html, body {
 }
 
 #mastHeadContainer button img {
-    width: 60%;
+    width: 50%;
 }
 
 #mastHeadContainer .logoContainer {
-    width: 150px;
+    width: 120px;
 }
 
 #mastHeadContainer .logoContainer img {
     margin-left: 8px;
-    height: 45px;
+    height: 35px;
 }

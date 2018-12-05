@@ -18,7 +18,7 @@
 
         <div id="mastHeadContainer">            
             <button class="navShowHide">
-                <img src="assets/images/icons/menu.png">
+                <img src="assets/images/icons/menu.png" title="logo" alt="Site logo">
             </button>
 
             <a class="logoContainer" href="index.php">
