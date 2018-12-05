@@ -25,6 +25,11 @@
                 <img src="assets/images/icons/unfuckTubeLogo.png">
             </a>
 
+            <div class="searchBarContainer">
+                <form action="search.php" method="GET">
+
+                </form>
+            </div>
         </div>
 
         <div id="sideNavContainer" style="display: none;">
