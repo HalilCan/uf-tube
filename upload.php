@@ -16,3 +16,5 @@ require_once("includes/classes/VideoDetailsFormProvider.php");
         }
     ?>
 </div>
+
+<?php require_once("includes/footer.php");?>
