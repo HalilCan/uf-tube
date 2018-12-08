@@ -1,15 +1,18 @@
 <?php 
     class VideoDetailsFormProvider {
+        
+        private $con;
+        
         public function __construct($con) {
-
+            $this->con = $con;
         }
 
         public function createUploadForm() {
-            $fileInput = $this -> createFileInput();
-            $titleInput = $this -> createTitleInput();
-            $descriptionInput = $this -> createDescriptionInput();
-            $privacyInput = $this -> createPrivacyInput();
-            $categoriesInput = $this -> createCategoriesInput();
+            $fileInput = $this->createFileInput();
+            $titleInput = $this->createTitleInput();
+            $descriptionInput = $this->createDescriptionInput();
+            $privacyInput = $this->createPrivacyInput();
+            $categoriesInput = $this->createCategoriesInput();
 
             return "<form action='processing.php' method='POST'>
                         $fileInput
@@ -49,9 +52,9 @@
           </div>";   
         }
 
-        private function createCategoriesInput($con) {
-            $categoryQuery = $con -> prepare("SELECT * FROM categories");
-            $categoryQuery -> execute();
+        private function createCategoriesInput() {
+            $categoryQuery = $this->con->prepare("SELECT * FROM categories");
+            $categoryQuery->execute();
 
             while($row = $categoryQuery->fetch(PDO::FETCH_ASSOC)) { //using the query we specified, we scroll through the key-value array
               echo $row["name"], "<br>";
