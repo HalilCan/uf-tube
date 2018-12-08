@@ -1,15 +1,15 @@
 <?php 
 class VideoUploadData {
     
-    private $videoDataArray, $title, $description, $privacy, $category, $uploader; //I don't like this style.
+    private $videoDataArray, $title, $description, $privacy, $category, $uploadedBy; //I don't like this style.
 
-    public function __construct($videoDataArray, $title, $description, $privacy, $category, $uploader) {
+    public function __construct($videoDataArray, $title, $description, $privacy, $category, $uploadedBy) {
         $this->videoDataArray = $videoDataArray;
         $this->title = $title;
         $this->description = $description;
         $this->privacy = $privacy;
         $this->category = $category;
-        $this->uploader = $uploader;
+        $this->uploadedBy = $uploadedBy;
     }
 
     public function getVideoDataArray() {
@@ -28,7 +28,7 @@ class VideoUploadData {
         return $this->category;
     }
     public function getUploader() {
-        return $this->uploader;
+        return $this->uploadedBy;
     }
 }
 ?>

@@ -24,8 +24,18 @@ class VideoProcessor {
         }
 
         if (move_uploaded_file($videoData["tmp_name"], $tempFilePath)) { //if the file path is valid, the file will be moved
-            echo "File uploaded successfully.";
+            
+            $finalFilePath = $targetDir . uniqid() . ".mp4";
+
+            if(!$this->insertVideoData($videoUploadData, $finalFilePath)) {
+                echo "Insert query failed.";
+                return false;
+            }
+
+
         }
+
+
     }
 
     private function processData($videoData, $filePath) {
@@ -55,6 +65,26 @@ class VideoProcessor {
     
     private function hasError($data) {
         return $data["error"] != 0;
+    }
+
+    private function insertVideoData($uploadData, $filepath) {
+        $query = $this->con->prepare("INSERT INTO videos(title, uploadedBy, description, privacy, category, filePath)
+                                    VALUES(:title, :uploadedBy, :description, :privacy, :category, :filePath)"); //needs to match the row names, clearly.
+        
+        $title = $uploadData->getTitle();
+        $uploadedBy = $uploadData->getUploader();
+        $description = $uploadData->getDescription();
+        $privacy = $uploadData->getPrivacy();
+        $category = $uploadData->getCategory();
+
+        $query->bindParam(":title", $title);
+        $query->bindParam(":uploadedBy", $uploadedBy);
+        $query->bindParam(":description", $description);
+        $query->bindParam(":privacy", $privacy);
+        $query->bindParam(":category", $category);
+        $query->bindParam(":filePath", $filePath);
+
+        return $query->execute();
     }
 }
 ?>
