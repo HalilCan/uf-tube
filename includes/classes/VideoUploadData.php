@@ -13,7 +13,7 @@ class VideoUploadData {
     }
 
     public function getVideoDataArray() {
-        return $this->videodataArray;
+        return $this->videoDataArray;
     }
     public function getTitle() {
         return $this->title;

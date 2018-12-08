@@ -10,7 +10,7 @@ if(!isSet($_POST["uploadButton"])) { //we 'retrieve' the POSTed data through $_P
 
 // 1- Create file upload data
 $videoUploadData = new VideoUploadData(
-    $_POST["fileInput"], 
+    $_FILES["fileInput"], 
     $_POST["titleInput"], 
     $_POST["descriptionInput"], 
     $_POST["privacyInput"], 
