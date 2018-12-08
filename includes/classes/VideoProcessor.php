@@ -32,15 +32,16 @@ class VideoProcessor {
         $videoType = pathInfo($filePath, PATHINFO_EXTENSION);
 
         if (!$this->isValidSize($videoData)) {
-            echo("File too large, can't be larger than " . $this->sizeLimit . " bytes.");
+            echo "File too large, can't be larger than " . $this->sizeLimit . " bytes.";
             return false;
         } else if (!$this->isValidType($videoType)) {
-            echo("Invalid file type.");
+            echo "Invalid file type.";
             return false;
         } else if ($this->hasError($videoData)) {
-            echo("Error code: " . $videoData["error"]);
+            echo "Error code: " . $videoData["error"];
             return false;
         }
+        return true; //Overlooking adding this has caused me almost two hours.
     }
 
     private function isValidSize($data) {
