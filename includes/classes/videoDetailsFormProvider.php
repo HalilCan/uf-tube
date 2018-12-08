@@ -56,9 +56,21 @@
             $categoryQuery = $this->con->prepare("SELECT * FROM categories");
             $categoryQuery->execute();
 
+            $html = "<div class='form-group'>
+            <select class='form-control' name='categoryInput'>";
+
             while($row = $categoryQuery->fetch(PDO::FETCH_ASSOC)) { //using the query we specified, we scroll through the key-value array
-              echo $row["name"], "<br>";
+                $name = $row["name"];
+                $id = $row["id"];
+                $html .= "<option value=$id>$name</option>"; //equivalent to $html = $html . VALUE
+                //echo $row["name"], "<br>";
             }
+
+            $html .= "
+                </select>
+            </div>";
+
+            return $html;
         }
 }
 ?>
