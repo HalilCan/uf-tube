@@ -13,6 +13,7 @@
             $descriptionInput = $this->createDescriptionInput();
             $privacyInput = $this->createPrivacyInput();
             $categoriesInput = $this->createCategoriesInput();
+            $uploadButton = $this->createUploadButton();
 
             return "<form action='processing.php' method='POST'>
                         $fileInput
@@ -20,6 +21,7 @@
                         $descriptionInput
                         $privacyInput
                         $categoriesInput
+                        $uploadButton
                     </form>";
         }
 
@@ -71,6 +73,10 @@
             </div>";
 
             return $html;
+        }
+
+        private function createUploadButton() {
+            return "<button type='submit' class='btn btn-primary' name='uploadButton'>Upload</button>";
         }
 }
 ?>
