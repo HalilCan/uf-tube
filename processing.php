@@ -1,5 +1,7 @@
 <?php 
 require_once("includes/header.php");
+require_once("includes/classes/VideoUploadData.php");
+require_once("includes/classes/VideoProcessor.php");
 
 if(!isSet($_POST["uploadButton"])) { //we 'retrieve' the POSTed data through $_POST, apparently. We'll see.
     echo "No file found for upload!";
@@ -8,11 +10,16 @@ if(!isSet($_POST["uploadButton"])) { //we 'retrieve' the POSTed data through $_P
 
 // 1- Create file upload data
 $videoUploadData = new VideoUploadData(
-    $_POST["fileInput"], $_POST["titleInput"], 
-    $_POST["descriptionInput"], $_POST["privacyInput"], 
-    $_POST["categoryInput"], "Patient Zero");
+    $_POST["fileInput"], 
+    $_POST["titleInput"], 
+    $_POST["descriptionInput"], 
+    $_POST["privacyInput"], 
+    $_POST["categoryInput"], 
+    "Patient Zero");
 
 // 2- Process video data
+$videoProcessor = new VideoProcessor($con);
+$wasSuccessful = $videoProcessor->upload($videoUploadData);
 
 
 // 3- Check if upload was successful 
