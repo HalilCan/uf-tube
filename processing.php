@@ -10,12 +10,12 @@ if(!isSet($_POST["uploadButton"])) { //we 'retrieve' the POSTed data through $_P
 
 // 1- Create file upload data
 $videoUploadData = new VideoUploadData(
-    $_FILES["fileInput"], 
-    $_POST["titleInput"], 
-    $_POST["descriptionInput"], 
-    $_POST["privacyInput"], 
-    $_POST["categoryInput"], 
-    "Patient Zero");
+                            $_FILES["fileInput"], 
+                            $_POST["titleInput"], 
+                            $_POST["descriptionInput"], 
+                            $_POST["privacyInput"], 
+                            $_POST["categoryInput"], 
+                            "Patient Zero");
 
 // 2- Process video data
 $videoProcessor = new VideoProcessor($con);
