@@ -50,8 +50,8 @@ class VideoProcessor {
                 echo "Failed to generate thumbnails.\n";
                 return false;
             }
+            return true;
         }
-        return true;
     }
 
     private function processData($videoData, $filePath) {
@@ -141,7 +141,7 @@ class VideoProcessor {
         
         for($num = 1; $num <= $numThumbnails; $num++) {
             $imageName = uniqid() . ".jpg";
-            $interval = ($duration * 0.8) / $numThumbnails * num;
+            $interval = ($duration * 0.8) / $numThumbnails * $num;
             $fullThumbnailPath = "$pathToThumbnail/$videoId-$imageName";
 
             $cmd = "$this->ffmpegPath -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath 2>&1";
@@ -157,8 +157,8 @@ class VideoProcessor {
                 }
             }
 
-            $query = $this->con->prepare("INSERT INTO thumbnails(videoId, filePath, selected")
-                                        VALUES(":videoId, :filePath, :selected");
+            $query = $this->con->prepare("INSERT INTO thumbnails(videoId, filePath, selected)
+                                        VALUES(:videoId, :filePath, :selected)");
             $query->bindParam(":videoId", $videoId);
             $query->bindParam(":filePath", $filePath);
             $query->bindParam(":selected", $selected);
