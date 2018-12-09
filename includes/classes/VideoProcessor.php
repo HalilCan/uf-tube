@@ -101,6 +101,7 @@ class VideoProcessor {
             foreach($outputLog as $line) {
                 echo $line . "<br>";
             }
+            return false;
         }
 
         return true;
