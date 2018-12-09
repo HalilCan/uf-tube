@@ -1,6 +1,9 @@
 <?php 
 require_once("includes/config.php");
+require_once("includes/classes/Account.php");
 require_once("includes/classes/FormSanitizer.php");
+
+$account = new Account($con);
 
 if(isSet($_POST["submitButton"])) {
 
@@ -10,14 +13,10 @@ if(isSet($_POST["submitButton"])) {
     $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
     
     $email = FormSanitizer::sanitizeFormEmail($_POST["email"]);
+    $emailConfirmation = FormSanitizer::sanitizeFormEmail($_POST["email2"]);
     
-    echo "Signup form submitted" . "\n";
-    echo "Name: " .  $firstName . "\n";
-    exit();    
-
-    $emailConfirmation = $_POST["email2"];
-    $password = $_POST["password"];
-    $passwordConfirmation = $_POST["password2"];
+    $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
+    $passwordConfirmation = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
 
     if($password != $passwordConfirmation) {
         echo "Password confirmation does not match!";
@@ -27,13 +26,7 @@ if(isSet($_POST["submitButton"])) {
         exit();
     }
 
-    // 1- Create user data
-    $userAccountData = new userAccountData(
-                                $firstName, 
-                                $lastName, 
-                                $username, 
-                                $email, 
-                                $password);
+    $account->register($firstName, $lastName, $username, $email, $password);
 
 }
 
