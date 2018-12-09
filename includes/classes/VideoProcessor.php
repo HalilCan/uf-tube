@@ -34,6 +34,10 @@ class VideoProcessor {
                 return false;
             }
 
+            if (!$this->convertVideoToMp4($tempFilePath, $finalFilePath)) {
+                echo "Upload failed\n";
+                return false;
+            }
 
         }
 
