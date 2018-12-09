@@ -67,7 +67,7 @@ class VideoProcessor {
         return $data["error"] != 0;
     }
 
-    private function insertVideoData($uploadData, $filepath) {
+    private function insertVideoData($uploadData, $filePath) {
         $query = $this->con->prepare("INSERT INTO videos(title, uploadedBy, description, privacy, category, filePath)
                                     VALUES(:title, :uploadedBy, :description, :privacy, :category, :filePath)"); //needs to match the row names, clearly.
         
