@@ -45,9 +45,13 @@ class VideoProcessor {
                 echo "Upload failed at temp file deletion.\n";
                 return false;
             }
+            
+            if (!$this->generateThumbnails($finalFilePath)) {
+                echo "Failed to generate thumbnails.\n";
+                return false;
+            }
         }
-
-
+        return true;
     }
 
     private function processData($videoData, $filePath) {
@@ -125,16 +129,38 @@ class VideoProcessor {
         return true;
     }
 
-    public function generalThumbnails($filePath) {
+    public function generateThumbnails($filePath) {
         $thumbnailSize = "210x118";
         $numThumbnails = 3;
         $pathToThumbnail = "uploads/videos/thumbnails";
 
         $duration = $this->getVideoDuration($filePath);
+
+        $videoId = $this->con->lastInsertId(); // this may be a little dangerous.
+        $this->updateDuration($duration, $videoId);
+        return true;
     }
 
     private function getVideoDuration($filePath) {
         return shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
+    }
+
+    private function updateDuration($duration, $videoId) {
+        $duration = (int)$duration;
+        $hours = floor($duration / 3600);
+        $minutes = floor(($duration - ($hours * 3600)) / 60);
+        $seconds = ($duration % 60);
+
+        $hours = ($hours < 1) ? "" : $hours . ":";
+        $minutes = ($minutes < 10) ? "0" . $minutes . ":" : $minutes . ":";
+        $seconds = ($seconds < 10) ? "0" . $seconds : $seconds;
+        $duration = $hours . $minutes . $seconds;
+
+        $query = $this->con->prepare("UPDATE videos SET duration=:duration WHERE id=:videoId");
+        $query->bindParam(":duration", $duration);
+        $query->bindParam(":videoId", $videoId);
+
+        $query->execute();
     }
 }
 ?>
