@@ -38,7 +38,6 @@ class VideoProcessor {
                 echo "Upload failed\n";
                 return false;
             }
-
         }
 
 
