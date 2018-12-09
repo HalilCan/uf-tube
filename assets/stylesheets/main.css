@@ -146,15 +146,62 @@ a:hover {
 
 /****** upload page ******/
 .column {
-    flex: 1;
     background-color: white;
+    box-shadow: #0003 0 1px 2px; 
+
     min-height: 300px;
     padding: 20px;
-    box-shadow: #0003 0 1px 2px; 
+    
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .form-group textarea {
     resize: none;
+}
+
+
+/****** sign-in and log-in pages ******/
+.signInContainer {
+    background-color: #efefef;
+    height: 100vh;
+    display: flex;
+    flex-grow: 0;
+    
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.signInContainer .column #siteLogo {
+    width: 120px;
+    margin-left: -5px;
+}
+
+.signInContainer .column {
+    width:450px;
+    max-height: 100%;
+    
+    padding: 20px 35px;
+    overflow-y: auto;
+    flex-grow: 0;
+}
+
+.signInContainer .column .header {
+    padding: 20px 0;
+}
+
+.signInContainer .column h3 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+
+    margin: 0;
+    padding-bottom: 0;
+    padding-top: 16px;
+}
+
+.signInContainer .column span {
+    font-size: 14px;
 }
