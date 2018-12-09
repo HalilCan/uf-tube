@@ -18,7 +18,7 @@ $("form").submit(() => {
 });
 </script>
 
-<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModal" aria-hidden="true">
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModal" aria-hidden="true" data-backdrop="static" data-keyboard="false"> <!-- the last two prevent the user from clicking and using the keyboard to leave the modal -->
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       
