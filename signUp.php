@@ -20,12 +20,13 @@
     <div class="column">
         <div class="header">
             <img id="siteLogo" src="assets/images/icons/unfuckTubeLogo.png">
-            <h3>Sign In</h3>
+            <h3>Sign Up</h3>
             <span>to continue to untuckTube</span>
         </div>
         <div class="loginForm">
 
         </div>
+        <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>
     </div>
 </div>
 
