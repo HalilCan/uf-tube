@@ -23,7 +23,9 @@ $wasSuccessful = $videoProcessor->upload($videoUploadData);
 
 
 // 3- Check if upload was successful 
-
+if ($wasSuccessful) {
+    echo "Upload successful!";
+}
 
 ?>
 <?php require_once("includes/footer.php");?>
