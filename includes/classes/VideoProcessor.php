@@ -5,10 +5,12 @@ class VideoProcessor {
     private $sizeLimit = 500000000;
     private $allowedTypes = array("mp4", "mkv", "flv", "mov", "wmv");
     private $ffmpegPath;
+    private $ffprobePath;
 
     public function __construct($con){
         $this->con = $con;
         $this->ffmpegPath = realpath("ffmpeg/bin/ffmpeg.exe"); //convert to full path and use .exe for Windows;
+        $this->ffprobePath = realpath("ffmpeg/bin/ffprobe.exe"); //convert to full path and use .exe for Windows;
     }
 
     public function upload($videoUploadData) {
@@ -30,12 +32,17 @@ class VideoProcessor {
             $finalFilePath = $targetDir . uniqid() . ".mp4";
 
             if(!$this->insertVideoData($videoUploadData, $finalFilePath)) {
-                echo "Insert query failed.";
+                echo "Insert query failed.\n";
                 return false;
             }
 
             if (!$this->convertVideoToMp4($tempFilePath, $finalFilePath)) {
                 echo "Upload failed\n";
+                return false;
+            }
+
+            if (!$this->deleteFile($tempFilePath)) {
+                echo "Upload failed at temp file deletion.\n";
                 return false;
             }
         }
@@ -108,6 +115,26 @@ class VideoProcessor {
         }
 
         return true;
+    }
+
+    public function deleteFile($filePath){
+        if(!unlink($filePath)) {
+            echo "Could not delete file \n";
+            return false;
+        }
+        return true;
+    }
+
+    public function generalThumbnails($filePath) {
+        $thumbnailSize = "210x118";
+        $numThumbnails = 3;
+        $pathToThumbnail = "uploads/videos/thumbnails";
+
+        $duration = $this->getVideoDuration($filePath);
+    }
+
+    private function getVideoDuration($filePath) {
+        return shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
     }
 }
 ?>
