@@ -23,7 +23,20 @@
             <h3>Sign Up</h3>
             <span>to continue to untuckTube</span>
         </div>
-        <div class="loginForm">
+        <div class="signUpForm signInForm">
+            <form action="signUp.php" method="POST">
+                <input type="text" name="firstName" placeholder="First name" autocomplete="off" required>
+                <input type="text" name="lastName" placeholder="Last name" autocomplete="off" required>
+                <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+
+                <input type="email" name="email" placeholder="Email" autocomplete="off" required>
+                <input type="email" name="email2" placeholder="Confirm email" autocomplete="off" required>
+                
+                <input type="password" name="password" placeholder="Password" autocomplete="off" required>
+                <input type="password" name="password2" placeholder="Confirm password" autocomplete="off" required>
+                
+                <input type="submit" name="submitButton" value="SUBMIT">
+            </form>
 
         </div>
         <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>

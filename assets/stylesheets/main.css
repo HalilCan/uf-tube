@@ -194,7 +194,7 @@ a:hover {
 
 .signInContainer .column h3 {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 32px;
 
     margin: 0;
@@ -204,4 +204,38 @@ a:hover {
 
 .signInContainer .header span {
     font-size: 14px;
+}
+
+.signUpForm form input[type="text"],
+.signUpForm form input[type="email"],
+.signUpForm form input[type="password"]  {
+    border: none;
+    border-bottom: 1px solid #dedede;
+
+    margin: 10px 0;
+    width: 100%;
+
+    font-size: 14px;
+}
+
+.signUpForm form input[type="submit"]  {
+    border: none;
+    border-radius: 3px;
+
+    height: 36px;
+    width: 88px;
+
+    font-weight: 600;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    background: #4285f4;
+    color: #fff;
+}
+
+.signInMessage {
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529;
 }
