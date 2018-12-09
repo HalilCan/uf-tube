@@ -1,5 +1,6 @@
 <?php 
 require_once("includes/config.php");
+require_once("includes/classes/Constants.php");
 require_once("includes/classes/Account.php");
 require_once("includes/classes/FormSanitizer.php");
 
@@ -58,8 +59,12 @@ if(isSet($_POST["submitButton"])) {
         </div>
         <div class="signUpForm signInForm">
             <form action="signUp.php" method="POST">
+
+                <?php echo $account->getError(Constants::$firstNameCharacters); ?>
                 <input type="text" name="firstName" placeholder="First name" autocomplete="off" required>
+                <?php echo $account->getError(Constants::$lastNameCharacters); ?>
                 <input type="text" name="lastName" placeholder="Last name" autocomplete="off" required>
+                <?php echo $account->getError(Constants::$usernameCharacters); ?>
                 <input type="text" name="username" placeholder="Username" autocomplete="off" required>
 
                 <input type="email" name="email" placeholder="Email" autocomplete="off" required>

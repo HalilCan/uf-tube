@@ -39,7 +39,7 @@
                 <a href="upload.php">
                     <img class="upload" src="assets/images/icons/upload.png">
                 </a>
-                <a href="#">
+                <a href="signIn.php">
                     <img class="upload" src="assets/images/profilePictures/default.png">
                 </a>
             </div>
