@@ -1,14 +1,20 @@
-<?php require_once("includes/config.php");
+<?php 
+require_once("includes/config.php");
+require_once("includes/classes/FormSanitizer.php");
 
 if(isSet($_POST["submitButton"])) {
-    echo "Signup form submitted";
-    echo "Name: " .  $_POST["firstName"];
-    exit();
-        
-    $firstName = $_POST["firstName"];
-    $lastName = $_POST["lastName"];
-    $username = $_POST["username"];
-    $email = $_POST["email"];
+
+    $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]); //with static functions, we use the Class::function(vars) pattern
+    $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);
+
+    $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
+    
+    $email = FormSanitizer::sanitizeFormEmail($_POST["email"]);
+    
+    echo "Signup form submitted" . "\n";
+    echo "Name: " .  $firstName . "\n";
+    exit();    
+
     $emailConfirmation = $_POST["email2"];
     $password = $_POST["password"];
     $passwordConfirmation = $_POST["password2"];
@@ -30,6 +36,7 @@ if(isSet($_POST["submitButton"])) {
                                 $password);
 
 }
+
 ?>
 
 <!DOCTYPE html>
