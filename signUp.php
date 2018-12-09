@@ -1,4 +1,37 @@
-<?php require_once("includes/config.php"); ?>
+<?php require_once("includes/config.php");
+
+if(isSet($_POST["submitButton"])) {
+    echo "Signup form submitted";
+    echo "Name: " .  $_POST["firstName"];
+    exit();
+        
+    $firstName = $_POST["firstName"];
+    $lastName = $_POST["lastName"];
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $emailConfirmation = $_POST["email2"];
+    $password = $_POST["password"];
+    $passwordConfirmation = $_POST["password2"];
+
+    if($password != $passwordConfirmation) {
+        echo "Password confirmation does not match!";
+        exit();
+    } else if($email != $emailConfirmation) {
+        echo "Email confirmation does not match!";
+        exit();
+    }
+
+    // 1- Create user data
+    $userAccountData = new userAccountData(
+                                $firstName, 
+                                $lastName, 
+                                $username, 
+                                $email, 
+                                $password);
+
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +67,7 @@
                 
                 <input type="password" name="password" placeholder="Password" autocomplete="off" required>
                 <input type="password" name="password2" placeholder="Confirm password" autocomplete="off" required>
-                
+                //TODO: email and password confirmations should match.
                 <input type="submit" name="submitButton" value="SUBMIT">
             </form>
 
@@ -46,3 +79,28 @@
 
 </body>
 </html>
+
+<?php require_once("includes/footer.php");
+
+/*
+if(!isSet($_POST["submitButton"])) {
+    echo "Signup form error!";
+    exit();
+}
+*/
+
+
+/*
+// 2- Process video data
+$videoProcessor = new VideoProcessor($con);
+$wasSuccessful = $videoProcessor->upload($videoUploadData);
+
+
+// 3- Check if upload was successful 
+if ($wasSuccessful) {
+    echo "Upload successful!";
+}
+*/
+
+
+?>
