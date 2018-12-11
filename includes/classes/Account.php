@@ -28,7 +28,10 @@ class Account {
         }
     }
 
-    private function validateLastName($fn) {
+    private function validateLastName($ln) {
+        if(strlen($ln) > 25 || strlen($ln) < 2) {
+            array_push($this->errorArray, Constants::lastNameCharacters)
+        }
 
     }
 
