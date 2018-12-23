@@ -24,13 +24,13 @@ class Account {
 
     private function validateFirstName($fn) {
         if(strlen($fn) > 25 || strlen($fn) < 2) {
-            array_push($this->errorArray, Constants::firstNameCharacters)
+            array_push($this->errorArray, Constants::firstNameCharacters);
         }
     }
 
     private function validateLastName($ln) {
         if(strlen($ln) > 25 || strlen($ln) < 2) {
-            array_push($this->errorArray, Constants::lastNameCharacters)
+            array_push($this->errorArray, Constants::lastNameCharacters);
         }
 
     }
