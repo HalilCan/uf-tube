@@ -19,17 +19,14 @@ if(isSet($_POST["submitButton"])) {
     $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
     $passwordConfirmation = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
 
-    if($password != $passwordConfirmation) {
-        echo "Password confirmation does not match!";
-        exit();
-    } else if($email != $emailConfirmation) {
-        echo "Email confirmation does not match!";
-        exit();
+
+    $registrationSuccessful = $account->register($firstName, $lastName, $username, $email, $emailConfirmation, $password, $passwordConfirmation);
+
+    if($registrationSuccessful) {
+        //SUCCESS
+        //Redirect to index page
     }
-
-    $account->register($firstName, $lastName, $username, $email, $password);
-
-}
+}  
 
 ?>
 
@@ -62,17 +59,26 @@ if(isSet($_POST["submitButton"])) {
 
                 <?php echo $account->getError(Constants::$firstNameCharacters); ?>
                 <input type="text" name="firstName" placeholder="First name" autocomplete="off" required>
+
                 <?php echo $account->getError(Constants::$lastNameCharacters); ?>
                 <input type="text" name="lastName" placeholder="Last name" autocomplete="off" required>
+
                 <?php echo $account->getError(Constants::$usernameCharacters); ?>
+                <?php echo $account->getError(Constants::$usernameTaken); ?>
                 <input type="text" name="username" placeholder="Username" autocomplete="off" required>
 
+                <?php echo $account->getError(Constants::$emailMismatch); ?>
+                <?php echo $account->getError(Constants::$emailInvalid); ?>
+                <?php echo $account->getError(Constants::$emailInUse); ?>
                 <input type="email" name="email" placeholder="Email" autocomplete="off" required>
                 <input type="email" name="email2" placeholder="Confirm email" autocomplete="off" required>
                 
+                <?php echo $account->getError(Constants::$passwordMismatch); ?>
+                <?php echo $account->getError(Constants::$passwordWeak); ?>
+                <?php echo $account->getError(Constants::$passwordLength); ?>
                 <input type="password" name="password" placeholder="Password" autocomplete="off" required>
                 <input type="password" name="password2" placeholder="Confirm password" autocomplete="off" required>
-                //TODO: email and password confirmations should match.
+
                 <input type="submit" name="submitButton" value="SUBMIT">
             </form>
 

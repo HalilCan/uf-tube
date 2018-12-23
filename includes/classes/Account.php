@@ -13,38 +13,85 @@ class Account {
 
     public function register($fn, $ln, $un, $em, $em2, $pw, $pw2) {
         $this->validateFirstName($fn);
+        $this->validateLastName($ln);
+        $this->validateUsername($un);
+        $this->validateEmail($em, $em2);
+        $this->validatePassword($pw, $pw2);
 
+        if(empty($this->errorArray)) {
+            return $this->insertUserDetails($fn, $ln, $un, $em, $pw);
+        } else {
+            return false;
+        }
+    }
 
-        $this->firstName = $fn;
-        $this->lastName = $ln;
-        $this->username = $un;
-        $this->email = $em;
-        $this->password = $pw;
+    public function insertUserDetails($fn, $ln, $un, $em, $pw) {
+
     }
 
     private function validateFirstName($fn) {
         if(strlen($fn) > 25 || strlen($fn) < 2) {
-            array_push($this->errorArray, Constants::firstNameCharacters);
+            array_push($this->errorArray, Constants::$firstNameCharacters);
         }
     }
 
     private function validateLastName($ln) {
         if(strlen($ln) > 25 || strlen($ln) < 2) {
-            array_push($this->errorArray, Constants::lastNameCharacters);
+            array_push($this->errorArray, Constants::$lastNameCharacters);
         }
 
     }
 
-    private function validateUsername($fn) {
+    private function validateUsername($un) {
+        if(strlen($un) > 100 || strlen($un) < 2) {
+            array_push($this->errorArray, Constants::$usernameCharacters);
+            return;
+        }
 
+        $query = $this->con->prepare("SELECT username FROM users WHERE username=:un");
+        $query->bindParam(":un", $un);
+        $query->execute();
+
+        if($query->rowCount() != 0) {
+            array_push($this->errorArray, Constants::$usernameTaken);
+        }
     }
 
-    private function validateEmail($fn) {
+    private function validateEmail($em, $em2) {
+        if($em != $em2) {
+            array_push($this->errorArray, Constants::$emailMismatch);
+            return;
+        }
 
+        if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+            array_push($this->errorArray, Constants::$emailInvalid);
+            return;
+        }
+
+        $query = $this->con->prepare("SELECT email FROM users WHERE email=:em");
+        $query->bindParam(":em", $em);
+        $query->execute();
+
+        if($query->rowCount() != 0) {
+            array_push($this->errorArray, Constants::$emailInUse);
+        }
     }
 
-    private function validatePassword($fn) {
+    private function validatePassword($pw, $pw2) {
+        if($pw != $pw2) {
+            array_push($this->errorArray, Constants::$passwordMismatch);
+            return;
+        }
 
+        if(preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z])/", $pw)) {
+            array_push($this->errorArray, Constants::$passwordWeak);
+            return;
+        }
+        
+        if(strlen($pw) > 100 || strlen($pw) < 8) {
+            array_push($this->errorArray, Constants::$passwordLength);
+            return;
+        }
     }
 
     public function getError($error) {
