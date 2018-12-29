@@ -246,3 +246,23 @@ a:hover {
     font-weight: 400;
     text-align: center;
 }
+
+
+/****** Video player ******/
+
+.watchLeftColumn {
+    flex: 1;
+}
+
+.watchLeftColumn .videoPlayer {
+    width: 100%;
+}
+
+
+.watchRightColumn {
+    max-width: 425px;
+    flex-grow: 1;
+    padding-left: 24px;
+
+    height: 100%;    
+}
