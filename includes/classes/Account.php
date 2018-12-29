@@ -29,6 +29,8 @@ class Account {
         $query = $this->con->prepare("INSERT INTO users(firstName, lastName, username, email, password) '
                                         VALUES(:firstName, :lastName, :username, :email, :password)");
         
+        $pw = hash("sha512", $pw);
+        
         $query->bindParam(":firstName", $fn);
         $query->bindParam(":lastName", $ln);
         $query->bindParam(":username", $un);
