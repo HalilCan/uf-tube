@@ -5,7 +5,6 @@ require_once("includes/classes/Account.php");
 require_once("includes/classes/FormSanitizer.php");
 
 $account = new Account($con);
-echo hash("sha512", "password");
 
 if(isSet($_POST["submitButton"])) {
 
@@ -23,9 +22,8 @@ if(isSet($_POST["submitButton"])) {
     $registrationSuccessful = $account->register($firstName, $lastName, $username, $email, $emailConfirmation, $password, $passwordConfirmation);
 
     if($registrationSuccessful) {
-        //SUCCESS
-        //Redirect to index page
-
+        $_SESSION["userLoggedIn"] = $username;
+        header("Location: index.php");
     }
 }  
 

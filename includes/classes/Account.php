@@ -26,20 +26,40 @@ class Account {
     }
 
     public function insertUserDetails($fn, $ln, $un, $em, $pw) {
-        $query = $this->con->prepare("INSERT INTO users(firstName, lastName, username, email, password) '
-                                        VALUES(:firstName, :lastName, :username, :email, :password)");
-        
         $pw = hash("sha512", $pw);
+        $profilePic = "assets/images/profilePictures/default.png";
         
+        $query = $this->con->prepare("INSERT INTO users(firstName, lastName, username, email, password, profilePic)
+                                        VALUES(:firstName, :lastName, :username, :email, :password, :profilePic)");
+        
+
         $query->bindParam(":firstName", $fn);
         $query->bindParam(":lastName", $ln);
         $query->bindParam(":username", $un);
         $query->bindParam(":email", $em);
         $query->bindParam(":password", $pw);
+        $query->bindParam(":profilePic", $profilePic);
 
         return $query->execute();
     }
 
+    public function login($un, $pw) {
+        $pw = hash("sha512", $pw);
+
+        $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
+        $query->bindParam(":un", $un);
+        $query->bindParam(":pw", $pw);
+
+        $query->execute();
+
+        if($query->rowCount() == 1) {
+            return true;
+        } else {
+            array_push($this->errorArray, Constants::$loginFailed);
+            return false;
+        }
+        
+    }
 
     private function validateFirstName($fn) {
         if(strlen($fn) > 25 || strlen($fn) < 2) {

@@ -11,6 +11,8 @@
         public static $passwordMismatch = "Passwords do not match.";
         public static $passwordWeak = "Passwords must include a minimum of one lowercase letter, one uppercase letter, one numerical character, and one special character.";
         public static $passwordLength = "Passwords must have at least 8 characters.";
+
+        public static $loginFailed = "Your username or password was incorrect.";
     }
 
 ?>
