@@ -161,6 +161,14 @@ a:hover {
     resize: none;
 }
 
+#loadingModal {
+    padding-left: 10px;
+}
+
+#loadingModal img {
+    margin-left: 20px;
+}
+
 
 /****** sign-in and log-in pages ******/
 .signInContainer {

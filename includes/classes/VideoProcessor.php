@@ -130,18 +130,18 @@ class VideoProcessor {
     }
 
     public function generateThumbnails($filePath) {
-        $thumbnailSize = "210x118";
+        $thumbnailSize = "420x236";
         $numThumbnails = 3;
         $pathToThumbnail = "uploads/videos/thumbnails";
 
         $duration = $this->getVideoDuration($filePath);
 
-        $videoId = $this->con->lastInsertId(); // this may be a little dangerous.
+        $videoId = $this->con->lastInsertId(); // this may be a little dangerous. update: why?
         $this->updateDuration($duration, $videoId);
         
         for($num = 1; $num <= $numThumbnails; $num++) {
             $imageName = uniqid() . ".jpg";
-            $interval = ($duration * 0.8) / $numThumbnails * $num;
+            $interval = ((int)$duration * 0.8) / $numThumbnails * $num;
             $fullThumbnailPath = "$pathToThumbnail/$videoId-$imageName";
 
             $cmd = "$this->ffmpegPath -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath 2>&1";

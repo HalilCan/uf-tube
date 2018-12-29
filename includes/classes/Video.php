@@ -43,10 +43,6 @@ class Video {
         return $this->sqlData["filePath"];
     }
  
-    public function getPrivacy() {
-        return $this->sqlData["privacy"];
-    }
- 
     public function getCategory() {
         return $this->sqlData["category"];
     } 
