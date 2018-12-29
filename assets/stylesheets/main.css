@@ -274,3 +274,19 @@ a:hover {
 
     height: 100%;    
 }
+
+
+/****** Video info section ******/
+
+.videoInfo {
+    width: 100%;
+    padding: 20px 0 8px 0;
+}
+
+.videoInfo h1 {
+    display: block;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+}
