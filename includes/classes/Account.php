@@ -26,8 +26,18 @@ class Account {
     }
 
     public function insertUserDetails($fn, $ln, $un, $em, $pw) {
+        $query = $this->con->prepare("INSERT INTO users(firstName, lastName, username, email, password) '
+                                        VALUES(:firstName, :lastName, :username, :email, :password)");
+        
+        $query->bindParam(":firstName", $fn);
+        $query->bindParam(":lastName", $ln);
+        $query->bindParam(":username", $un);
+        $query->bindParam(":email", $em);
+        $query->bindParam(":password", $pw);
 
+        return $query->execute();
     }
+
 
     private function validateFirstName($fn) {
         if(strlen($fn) > 25 || strlen($fn) < 2) {

@@ -5,6 +5,7 @@ require_once("includes/classes/Account.php");
 require_once("includes/classes/FormSanitizer.php");
 
 $account = new Account($con);
+echo hash("sha512", "password");
 
 if(isSet($_POST["submitButton"])) {
 
@@ -19,14 +20,20 @@ if(isSet($_POST["submitButton"])) {
     $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
     $passwordConfirmation = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
 
-
     $registrationSuccessful = $account->register($firstName, $lastName, $username, $email, $emailConfirmation, $password, $passwordConfirmation);
 
     if($registrationSuccessful) {
         //SUCCESS
         //Redirect to index page
+
     }
 }  
+
+function getInputValue($name) {
+    if(isset($_POST[$name])) {
+        echo $_POST[$name]; //using this allows for autofill on resubmission
+    }
+}
 
 ?>
 
@@ -57,17 +64,17 @@ if(isSet($_POST["submitButton"])) {
         <div class="signUpForm signInForm">
             <form action="signUp.php" method="POST">
 
-                <input type="text" name="firstName" placeholder="First name" autocomplete="off" required>
+                <input type="text" name="firstName" placeholder="First name" value="<?php getInputValue('firstName'); ?>" autocomplete="off" required>
                 <?php echo $account->getError(Constants::$firstNameCharacters); ?>
 
-                <input type="text" name="lastName" placeholder="Last name" autocomplete="off" required>
+                <input type="text" name="lastName" placeholder="Last name" value="<?php getInputValue('lastName'); ?>" autocomplete="off" required>
                 <?php echo $account->getError(Constants::$lastNameCharacters); ?>
 
-                <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+                <input type="text" name="username" placeholder="Username" value="<?php getInputValue('username'); ?>" autocomplete="off" required>
                 <?php echo $account->getError(Constants::$usernameCharacters); ?>
                 <?php echo $account->getError(Constants::$usernameTaken); ?>
 
-                <input type="email" name="email" placeholder="Email" autocomplete="off" required>
+                <input type="email" name="email" placeholder="Email" value="<?php getInputValue('email'); ?>" autocomplete="off" required>
                 <input type="email" name="email2" placeholder="Confirm email" autocomplete="off" required>
                 <?php echo $account->getError(Constants::$emailMismatch); ?>
                 <?php echo $account->getError(Constants::$emailInvalid); ?>
