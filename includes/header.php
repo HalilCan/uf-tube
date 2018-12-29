@@ -1,4 +1,10 @@
-<?php require_once("config.php"); ?>
+<?php 
+require_once("config.php"); 
+require_once("includes/classes/User.php"); 
+
+$usernameLoggedIn = isset($_SESSION["userLoggedIn"]) ? $_SESSION["userLoggedIn"] : "" ;
+$userLoggedInObj = new User($con, $usernameLoggedIn);
+?>
 <!DOCTYPE html>
 <html>
 <head>
