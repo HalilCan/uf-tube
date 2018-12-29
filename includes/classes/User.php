@@ -32,6 +32,14 @@ class User {
     public function getEmail() {
         return $this->sqlData["email"];
     }
+
+    public function getProfilePic() {
+        return $this->sqlData["profilePic"];
+    }
+
+    public function getSignUpDate() {
+        return $this->sqlData["signUpDate"];
+    }
 }
 
 
