@@ -63,7 +63,7 @@ class ButtonProvider {
 
         $button = ButtonProvider::createButton($buttonText, null, $action, $buttonClass);
 
-        return "<div class='subscribeButtonContainer>
+        return "<div class='subscribeButtonContainer'>
                     $button
                 </div>";
 

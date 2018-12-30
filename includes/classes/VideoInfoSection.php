@@ -44,19 +44,20 @@ class VideoInfoSection {
             $actionButton = ButtonProvider::createSubscriberButton($this->con, $userToObject, $this->userLoggedInObj);
         }
 
-        return "<div class='secondaryInfo'
+        return "<div class='secondaryInfo'>
                     <div class='topRow'>
                         $profileButton
                         <div class='uploadInfo'>
                             <span class='owner'>
                                 <a href='profile.php?username=$uploadedBy'>
-                                    $uploadedBy;
+                                    $uploadedBy
                                 </a>
                             </span>
                             <span class='date'>
                                 Published on $uploadDate
                             </span>
                         </div>
+                        $actionButton
                     </div>
                     <div class='descriptionContainer'>
                         $description
