@@ -8,6 +8,10 @@ function likeVideo(button, videoId) {
 
         likeButton.addClass("active");
         dislikeButton.removeClass("active");
+
+        ler result = JSON.parse(data);
+        updateLikesValue(likeButton.find(".text"), result.likes);
+        updateLikesValue(dislikeButton.find(".text"), result.dislikes);
     });
 }
 
@@ -22,4 +26,10 @@ function dislikeVideo(button, videoId) {
         dislikeButton.addClass("active");
         likeButton.removeClass("active");
     });
+}
+
+function updateLikesValue(element, num) {
+    let likesCountVal = element.text () || 0;
+    element.text(parseInt(likesCountVal) + parseInt(num));
+
 }
