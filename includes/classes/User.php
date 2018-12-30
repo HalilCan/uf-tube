@@ -61,8 +61,7 @@ class User {
         $username = $this->getUsername();
         $query->execute();
 
-        return ($query->rowCount());
-        
+        return ($query->rowCount());        
     }
 }
 

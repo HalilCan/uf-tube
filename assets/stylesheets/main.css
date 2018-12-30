@@ -298,6 +298,14 @@ a:hover {
     flex: 1;
 }
 
+.secondaryInfo .topRow {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.secondaryInfo .topRow .profilePicture {
+    height: 100%;
+}
 
 /****** Like/dislike button ******/
 
@@ -321,3 +329,5 @@ a:hover {
     width: 20px;
     margin: 4px 8px 8px 8px;    
 }
+
+/****** Subscribe button ******/

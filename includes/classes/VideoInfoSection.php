@@ -40,8 +40,8 @@ class VideoInfoSection {
         if($uploadedBy == $this->userLoggedInObj->getUsername()) {
             $actionButton = ButtonProvider::createEditVideoButton($this->video->getId());
         } else {
-            //TODO: subscribe button
-            $actionButton = "";
+            $userToObject = new User($this->con, $uploadedBy);
+            $actionButton = ButtonProvider::createSubscriberButton($this->con, $userToObject, $this->userLoggedInObj);
         }
 
         return "<div class='secondaryInfo'
@@ -57,6 +57,9 @@ class VideoInfoSection {
                                 Published on $uploadDate
                             </span>
                         </div>
+                    </div>
+                    <div class='descriptionContainer'>
+                        $description
                     </div>
                 </div>";
     }
