@@ -38,9 +38,10 @@ class VideoInfoSection {
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $uploadedBy);
 
         if($uploadedBy == $this->userLoggedInObj->getUsername()) {
-            $actionButton = 
+            $actionButton = ButtonProvider::createEditVideoButton($this->video->getId());
         } else {
-
+            //TODO: subscribe button
+            $actionButton = "";
         }
 
         return "<div class='secondaryInfo'

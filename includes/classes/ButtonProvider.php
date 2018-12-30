@@ -9,7 +9,6 @@ class ButtonProvider {
     }
 
     public static function createButton($text, $imageSrc, $action, $class) {
-        
         $image = ($imageSrc == null) ? "" : "<img src='$imageSrc'>";
 
         $action = ButtonProvider::createLink($action);
@@ -18,6 +17,17 @@ class ButtonProvider {
             $image
             <span class='text'>$text</span>
         </button>";
+    }
+
+    public static function createHyperlinkButton($text, $imageSrc, $href, $class) {
+        $image = ($imageSrc == null) ? "" : "<img src='$imageSrc'>";
+        
+        return "<a href='$href'>
+                    <button class='$class' onclick='$href'>
+                        $image
+                        <span class='text'>$text</span>
+                    </button>
+                </a>";
     }
 
     public static function createUserProfileButton($con, $username) {
@@ -30,10 +40,14 @@ class ButtonProvider {
                 </a>";
     }
 
-    public static function createEditVideoButton($video) {
+    public static function createEditVideoButton($videoId) {
         $href = "editVideo.php?videoId=$videoId";
 
-        $button = "";
+        $button = ButtonProvider::createHyperlinkButton("EDIT VIDEO", null, $href, "edit button");
+
+        return "<div class='editVideoButtonContainer'>
+                    $button
+                </div>";
     }
 
 }
