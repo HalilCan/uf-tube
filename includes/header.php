@@ -19,6 +19,7 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="assets/scripts/main.js"></script>
     <script src="assets/scripts/commonActions.js"></script>
+    <script src="assets/scripts/userActions.js"></script>
 
 </head>
 <body>

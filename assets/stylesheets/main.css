@@ -341,6 +341,12 @@ a:hover {
     margin-bottom: 20px;
 }
 
+.secondaryInfo .topRow .uploadInfo .owner a {
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}
+
 /****** Like/dislike button ******/
 
 .videoInfo .bottomSection .controls {
