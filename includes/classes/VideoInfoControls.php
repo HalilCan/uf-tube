@@ -31,7 +31,7 @@ class VideoInfoControls {
 
         //todo: change button if video has been liked already, same for dislike
 
-        return ButtonProvider::createButton("Like", $imageSrc, $action, $class);
+        return ButtonProvider::createButton($text, $imageSrc, $action, $class);
     }
     
     private function createDislikeButton() {

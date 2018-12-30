@@ -13,6 +13,8 @@ $video = new Video($con, $_GET["id"], $userLoggedInObj);
 $video->incrementViews();
 ?>
 
+<script src="assets/scripts/videoPlayerActions.js"></script>
+
 <div class = "watchLeftColumn">
 
 <?php

@@ -1,0 +1,4 @@
+function likeVideo(button, videoId) {
+    
+
+}
