@@ -35,8 +35,11 @@ $video->incrementViews();
 </div>
 
 
-<div class = "watchRightColumn">
-
+<div class = "watchRightColumn suggestions">
+    <?php
+        $videoGrid = new VideoGrid($con, $userLoggedInObj);
+        echo $videoGrid->create(null, null, false);
+    ?>
 </div>
 
 
