@@ -84,7 +84,6 @@ class Comment {
 
         $data = $query->fetch(PDO::FETCH_ASSOC);
         $numLikes = $data["count"];
-        echo $numLikes;
 
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM dislikes WHERE commentId=:commentId");
         $query->bindParam(":commentId", $commentId);

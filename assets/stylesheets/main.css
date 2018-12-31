@@ -121,7 +121,7 @@ a:hover {
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
 
-    border-shadow: #eee 0px 1px 2px 0px inset; /* inset shadow turns the shadow from an outside to inside shadow */
+    box-shadow: #eee 0px 1px 2px 0px inset; /* inset shadow turns the shadow from an outside to inside shadow */
 }
 
 #mastHeadContainer .searchBarContainer .searchButton {

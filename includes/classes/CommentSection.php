@@ -34,7 +34,7 @@ class CommentSection {
                     </div>
                     
                     <div class='comments'>
-                    
+                        
                     </div>
                 </div>";
     }

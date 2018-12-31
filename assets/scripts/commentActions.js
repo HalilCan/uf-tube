@@ -57,7 +57,7 @@ function dislikeComment(commentId, button, videoId) {
         let likesCount = $(button).siblings(".likesCount");
         updateLikesValue(likesCount, numToChange);
 
-        if(result.dislikes < 0) {
+        if(numToChange) {
             dislikeButton.removeClass("active");
             dislikeButton.find("img:first").attr("src", "assets/images/icons/thumb-down.png");
         } else {
