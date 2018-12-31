@@ -429,11 +429,13 @@ a:hover {
 
 .commentSection .header .commentForm .commentBodyClass {
     flex: 1;
-    border: none;
+    border: 1px solid rgba(17, 17, 17, 0.4);
     background-color: transparent;
     font-size: 14px;
     color: #111;
     resize: none;
+    margin-right: 10px;
+    box-sizing: content-box;
 }
 
 .commentSection .header .commentForm .postComment {
