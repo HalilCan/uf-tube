@@ -32,7 +32,7 @@ class Comment {
         $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
 
-        $timestamp = $this->time_elapsed_string($this->sqlData["datePosted"]); //TODO
+        $timestamp = $this->time_elapsed_string($this->sqlData["datePosted"]);
         $commentControlsObj = new CommentControls($this->con, $this, $this->userLoggedInObj);
         $commentControls = $commentControlsObj->create();
 
@@ -72,7 +72,7 @@ class Comment {
         $query->bindParam(":responseTo", $id);
         $id = $this->sqlData["id"];
         $query->execute();
-        
+
         return $query->fetchColumn();
     }
 
@@ -130,7 +130,7 @@ class Comment {
     public function time_elapsed_string($datetime, $full = false) {
         $now = new DateTime;
         $ago = new DateTime($datetime);
-        $diff = $now->diff($ago);
+        $diff = (($now->diff($ago))->y < 0) ? 0 : $now->diff($ago);
     
         $diff->w = floor($diff->d / 7);
         $diff->d -= $diff->w * 7;

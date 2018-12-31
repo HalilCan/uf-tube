@@ -13,3 +13,10 @@ function postComment(button, postedBy, videoId, replyTo, containerClass) {
         return;
     }
 }
+
+function toggleReply(button) {
+    let parent = $(button).closest(".itemContainer");
+    let commentForm = parent.find(".commentForm").first();
+
+    commentForm.toggleClass("hidden");
+}
