@@ -15,6 +15,7 @@ $video->incrementViews();
 ?>
 
 <script src="assets/scripts/videoPlayerActions.js"></script>
+<script src="assets/scripts/commentActions.js"></script>
 
 <div class = "watchLeftColumn">
 
