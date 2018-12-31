@@ -9,7 +9,8 @@ a:hover {
 }
 
 #pageContainer {
-    height: 100%;
+    height: auto;
+    min-height: 100%;
     width: 100%;
     background-color: #fafafa;
 }
@@ -349,7 +350,7 @@ a:hover {
 
 /****** Like/dislike button ******/
 
-.videoInfo .bottomSection .controls {
+.videoInfo .bottomSection .controls{
     flex: 1;
     text-align: right;
 }
@@ -364,7 +365,7 @@ a:hover {
     cursor: pointer;
 }
 
-.videoInfo .bottomSection .controls button img {
+.videoInfo .bottomSection .controls button img{
     height: 20px;
     width: 20px;
     margin: 4px 8px 8px 8px;    
@@ -479,9 +480,47 @@ a:hover {
     margin-bottom: 2px;
 }
 
-.commentSecion .comment .username {
+.commentSection .comment .username {
     margin-right: 8px;
     color: #111;
     font-size: 13px;
     font-weight: 500;
+}
+
+.commentSection .comment .timestamp {
+    color: #888;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.itemContainer .controls {
+    margin-left: 64px;
+}
+
+.itemContainer .controls button,
+.itemContainer .controls .likesCount {
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(17,17,17,0.6);
+}
+
+.itemContainer .controls button {
+    cursor: pointer;
+}
+
+.itemContainer .controls .likesCount {
+    margin: 0 5px;
+}
+
+.itemContainer .controls button img {
+    height: 16px;
+}
+
+.itemContainer .commentForm .profilePicture {
+    width: 30px;
+    height: 30px;
 }
