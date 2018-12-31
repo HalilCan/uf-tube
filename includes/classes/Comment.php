@@ -28,6 +28,8 @@ class Comment {
         $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
 
+        $timestamp = "TIME"; //TODO
+
         return "<div class='itemContainer'>
                     <div class='comment'>
                         $profileButton
@@ -45,6 +47,25 @@ class Comment {
                         </div>
                     </div>
                 </div>";
+    }
+
+    public function getLikes() {
+        $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE commentId=:commentId");
+        $query->bindParam(":commentId", $commentId);
+        $commentId = $this->getId();
+        $query->execute();
+
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+        $numLikes = $data["count"];
+
+        $query = $this->con->prepare("SELECT count(*) as 'count' FROM dilikes WHERE commentId=:commentId");
+        $query->bindParam(":commentId", $commentId);
+        $query->execute();
+
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+        $numDislikes = $data["count"];
+
+        return $numLikes - $numDislikes;
     }
 }
 ?>
