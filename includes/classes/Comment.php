@@ -128,9 +128,9 @@ class Comment {
     }
 
     public function time_elapsed_string($datetime, $full = false) {
-        $now = new DateTime;
         $ago = new DateTime($datetime);
-        $diff = (($now->diff($ago))->y < 0) ? 0 : $now->diff($ago);
+        $now = new DateTime;
+        $diff = $now->diff($ago);
     
         $diff->w = floor($diff->d / 7);
         $diff->d -= $diff->w * 7;
@@ -177,7 +177,7 @@ class Comment {
 
             $query = $this->con->prepare("INSERT INTO likes(username, commentId) VALUES(:username, :commentId)");
             $query->bindParam(":username", $username);
-            $query->bindParam(":videoId", $id);
+            $query->bindParam(":commentId", $id);
             $query->execute();
 
             return 1 + $count;
@@ -208,7 +208,7 @@ class Comment {
             $query->bindParam(":commentId", $id);
             $query->execute();
 
-            return $count - 1;
+            return -1 - $count;
         }
     }
 }
