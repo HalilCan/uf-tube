@@ -420,25 +420,35 @@ a:hover {
     flex-direction: row;
 }
 
-.commentSection .header .commentForm img {
+.itemContainer .commentForm {
+    display: flex;
+}
+
+.commentSection .header .commentForm .profilePicture,
+.commentSection .comment .profilePicture {
     margin-right: 16px;
     width: 48px;
     height: 48px;
     border-radius: 50%;
 }
 
-.commentSection .header .commentForm .commentBodyClass {
+.commentSection .header .commentForm .commentBodyClass,
+.itemContainer .commentForm textarea {
     flex: 1;
-    border: 1px solid rgba(17, 17, 17, 0.4);
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    border-radius: 2px;    
     background-color: transparent;
     font-size: 14px;
     color: #111;
     resize: none;
     margin-right: 10px;
     box-sizing: content-box;
+    padding: 4px 6px;
 }
 
-.commentSection .header .commentForm .postComment {
+.commentSection .header .commentForm .postComment,
+.itemContainer .commentForm .postComment,
+.itemContainer .commentForm .cancelComment {
     height: 36px;
     background-color: #2692e6;
     color: #fff;
@@ -446,4 +456,32 @@ a:hover {
     border: none;
     padding: 0 15px;
     border-radius: 2px;
+}
+
+.itemContainer .commentForm textarea {
+    height: 30px;
+}
+
+.itemContainer .commentForm .cancelComment {
+    background-color: transparent;
+    color: rgba(17, 17, 17, 0.6);
+}
+
+.itemContainer .commentForm .cancelComment:hover {
+    color: #000;
+}
+
+.commentSection .comment {
+    display: flex;
+}
+
+.commentSection .commentHeader {
+    margin-bottom: 2px;
+}
+
+.commentSecion .comment .username {
+    margin-right: 8px;
+    color: #111;
+    font-size: 13px;
+    font-weight: 500;
 }

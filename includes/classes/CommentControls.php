@@ -80,15 +80,14 @@ class CommentControls {
         $cancelButton = ButtonProvider::createButton("Cancel", null, $cancelButtonAction, "cancelComment");
 
         $postCommentAction = "postComment(this, \"$postedBy\", $videoId, $commentId, \"repliesSection\")";
-        $postCommentButton = ButtonProvider::createButton("Reply", null, $postButtonAction, "postComment");
+        $postCommentButton = ButtonProvider::createButton("Reply", null, $postCommentAction, "postComment");
 
         return "<div class='commentForm hidden'>
             $profileButton
-            <textarea class='commentBodyClass' placeholder='Add a public comment'></textarea>
+            <textarea class='commentBodyClass' placeholder='Reply to this comment'></textarea>
             $cancelButton
             $postCommentButton
         </div>";
-    }
     }
 }
 
