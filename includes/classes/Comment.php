@@ -43,7 +43,7 @@ class Comment {
                                     View all $numResponses replies
                                 </span>";
         } else {
-            $viewRepliesText = "<div class = 'repliesSection></div>";
+            $viewRepliesText = "<div class='repliesSection'></div>";
         }
 
         return "<div class='itemContainer'>

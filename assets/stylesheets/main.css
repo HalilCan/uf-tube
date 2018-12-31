@@ -448,6 +448,10 @@ a:hover {
     padding: 4px 6px;
 }
 
+.itemContainer .commentForm textarea {
+    margin-left: 10px;
+}
+
 .commentSection .header .commentForm .postComment,
 .itemContainer .commentForm .postComment,
 .itemContainer .commentForm .cancelComment {

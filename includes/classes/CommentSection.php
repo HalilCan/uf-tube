@@ -16,10 +16,13 @@ class CommentSection {
 
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
         $commentAction = "postComment(this, \"$postedBy\", $videoId, null, \"comments\")";
-
         $commentButton = ButtonProvider::createButton("COMMENT", null, $commentAction, "postComment");
 
-        //get comments html
+        $comments = $this->video->getComments();
+        $commentItems = "";
+        foreach($comments as $comment) {
+            $commentItems .= $comment->create();
+        }
 
         return "<div class='commentSection'>
                     <div class='header'>
@@ -34,7 +37,7 @@ class CommentSection {
                     </div>
                     
                     <div class='comments'>
-                        
+                        $commentItems
                     </div>
                 </div>";
     }
