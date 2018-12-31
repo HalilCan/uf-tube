@@ -536,5 +536,21 @@ a:hover {
 }
 
 .comments .itemContainer {
-    margin-top: 14px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.commentSection .itemContainer .viewReplies{
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.comments .repliesSection {
+    padding-left: 64px;
+    margin-top: 16px;
+}
+
+.commentSection .itemContainer {
+
 }
