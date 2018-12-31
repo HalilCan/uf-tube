@@ -26,7 +26,7 @@ $video->incrementViews();
     echo $videoInfoSection->create();
     
     $commentSection = new CommentSection($con, $video, $userLoggedInObj);
-    echo $videoInfoSection->create();
+    echo $commentSection->create();
 ?>
 
 </div>
