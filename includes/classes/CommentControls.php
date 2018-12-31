@@ -16,16 +16,13 @@ class CommentControls {
         $likeButton = $this->createLikeButton();
         $likesCount = $this->createLikesCount();
         $dislikeButton = $this->createDislikeButton();
-        $dislikesCount = $this->createDislikesCount();
         $replySection = $this->createReplySection();
-
 
         return "<div class='controls'>
                     $replyButton
-                    $likeButton
                     $likesCount
+                    $likeButton
                     $dislikeButton
-                    $dislikesCount
                     $replySection
                 </div>";
     }
@@ -70,6 +67,28 @@ class CommentControls {
             $imageSrc = "assets/images/icons/thumb-down-active.png";
         }
         return ButtonProvider::createButton("", $imageSrc, $action, $class);
+    }
+
+    private function createReplySection() {
+        $postedBy = $this->userLoggedInObj->getUsername();
+        $videoId = $this->comment->getVideoId();
+        $commentId = $this->comment->getId();
+
+        $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
+        
+        $cancelButtonAction = "toggleReply(this)";
+        $cancelButton = ButtonProvider::createButton("Cancel", null, $cancelButtonAction, "cancelComment");
+
+        $postCommentAction = "postComment(this, \"$postedBy\", $videoId, $commentId, \"repliesSection\")";
+        $postCommentButton = ButtonProvider::createButton("Reply", null, $postButtonAction, "postComment");
+
+        return "<div class='commentForm hidden'>
+            $profileButton
+            <textarea class='commentBodyClass' placeholder='Add a public comment'></textarea>
+            $cancelButton
+            $postCommentButton
+        </div>";
+    }
     }
 }
 
