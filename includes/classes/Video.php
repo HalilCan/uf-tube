@@ -127,11 +127,11 @@ class Video {
     }
 
     public function dislike() {        
-        $wasLikedBy = $this->wasDislikedBy();
+        $wasDislikedBy = $this->wasDislikedBy();
         $username = $this->userLoggedInObj->getUsername();
         $id = $this->getId();
 
-        if($wasLikedBy) {
+        if($wasDislikedBy) {
             $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND videoId=:videoId");
             $query->bindParam(":username", $username);
             $query->bindParam(":videoId", $id);
