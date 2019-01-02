@@ -35,8 +35,32 @@ class VideoGridItem {
     }
     
     public function createDetails() {
-        return "";        
+        $title = $this->video->getTitle();
+        $views = $this->video->getViews();
+
+        $uploadDate = $this->video->getUploadDate();
+        $uploadedBy = $this->video->getUploadedBy();
+        
+
+        return "<div class='videoDetails'>
+                    <h1>$title</h1>
+                    <div class='bottomSection'>
+                        <div class='uploadInfo'>
+                            <span class='owner'>
+                                <a href='profile.php?username=$uploadedBy'>
+                                    $uploadedBy
+                                </a>
+                            </span>
+                            <span class='date'>
+                                Published on $uploadDate
+                            </span>
+                        </div>
+                        <span class='viewCount'>$views views</span>
+                    </div>
+                </div>";       
     }
+
+
 
 }
 

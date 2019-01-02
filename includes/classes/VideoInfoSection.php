@@ -22,7 +22,7 @@ class VideoInfoSection {
         $videoInfoControls = new VideoInfoControls($this->video, $this->userLoggedInObj);
         $controls = $videoInfoControls->create();
 
-        return "<div class='videoInfo'
+        return "<div class='videoInfo'>
                     <h1>$title</h1>
                     <div class='bottomSection'>
                         <span class='viewCount'>$views views</span>

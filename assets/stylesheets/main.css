@@ -5,7 +5,7 @@ html, body {
 }
 
 a:hover {
-    text-decoration: none; /* TODO: this doesn't work with the upload button, for some reason */
+    text-decoration: none !important; /* TODO: this doesn't work with the upload button, for some reason */
 }
 
 #pageContainer {
@@ -30,7 +30,6 @@ a:hover {
     display: flex;
     align-items: center;
     align-content: center;
-    
 }
 
 #sideNavContainer {
@@ -549,4 +548,73 @@ a:hover {
 .comments .repliesSection {
     padding-left: 64px;
     margin-top: 16px;
+}
+
+/******* Suggestions sidebar *******/
+
+.suggestions .videoGrid .videoGridItem {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 12px;
+}
+
+.suggestions a {
+    color: rgba(17, 17, 17, 0.8);
+    text-decoration: none !important;
+}
+
+.suggestions a:hover {
+    color: rgba(17, 17, 17, 1);
+}
+
+.suggestions .videoGrid .videoGridItem .videoDetails {
+    flex: 1;
+    flex-direction: column;
+    margin-left: 6px;
+}
+
+.suggestions .videoGrid .videoGridItem .videoDetails h1 {
+    flex: 1;
+    display: block;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 2px;
+}
+
+.suggestions .videoGrid .videoGridItem .videoDetails .viewCount {
+    color: rgba(17, 17, 17, 0.6);
+    font-size: 16px;
+    flex: 1;
+}
+
+.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection {
+    flex: 1;
+    flex-direction: column;    
+}
+.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection {
+    flex: 1;
+    flex-direction: column;    
+}
+
+.suggestions .videoGrid .videoGridItem .thumbnail {
+    flex: 1;
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    overflow: hidden;
+    border-radius: 2px;
+    min-width: 200px;
+}
+
+.suggestions .videoGrid .videoGridItem .thumbnail img {
+    width: 100%;
+}
+
+.suggestions .videoGrid .videoGridItem .thumbnail .duration {
+    line-height: 0;
+    position: relative;
+    bottom: 3px;
+    left: 3px;
+    padding: 0;
+    display: inline-block;
 }
