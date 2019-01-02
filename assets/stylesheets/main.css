@@ -568,14 +568,15 @@ a:hover {
 }
 
 .suggestions .videoGrid .videoGridItem .videoDetails {
+    display: flex;
     flex: 1;
     flex-direction: column;
     margin-left: 6px;
 }
 
 .suggestions .videoGrid .videoGridItem .videoDetails h1 {
+    display: flex;
     flex: 1;
-    display: block;
     overflow: hidden;
     font-size: 18px;
     font-weight: 400;
@@ -583,22 +584,38 @@ a:hover {
     margin-top: 2px;
 }
 
-.suggestions .videoGrid .videoGridItem .videoDetails .viewCount {
+.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection {
+    display: flex;
+    flex: 1;
+    flex-direction: column;    
+}
+
+.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;    
+}
+
+.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .owner {
+    display: flex;
+    flex: 1;
+}
+
+.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .date {
+    display: flex;
+    flex: 1;
+}
+
+.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .viewCount {
+    display: flex;
     color: rgba(17, 17, 17, 0.6);
     font-size: 16px;
     flex: 1;
 }
 
-.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection {
-    flex: 1;
-    flex-direction: column;    
-}
-.suggestions .videoGrid .videoGridItem .videoDetails .bottomSection {
-    flex: 1;
-    flex-direction: column;    
-}
-
 .suggestions .videoGrid .videoGridItem .thumbnail {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     border: 1px solid rgba(17, 17, 17, 0.2);
     overflow: hidden;
@@ -613,7 +630,7 @@ a:hover {
 .suggestions .videoGrid .videoGridItem .thumbnail .duration {
     line-height: 0;
     position: relative;
-    bottom: 3px;
+    bottom: 12px;
     left: 3px;
     padding: 0;
     display: inline-block;

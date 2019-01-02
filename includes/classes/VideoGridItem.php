@@ -54,8 +54,8 @@ class VideoGridItem {
                             <span class='date'>
                                 Published on $uploadDate
                             </span>
+                            <span class='viewCount'>$views views</span>
                         </div>
-                        <span class='viewCount'>$views views</span>
                     </div>
                 </div>";       
     }
