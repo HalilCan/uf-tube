@@ -1,8 +1,14 @@
-<?php require_once("includes/header.php");?>
+<?php require_once("includes/header.php");
 
+//from subscriptions
 
+//discover
 
-Hello content
+//suggestions
+
+//subscriptions, channel by channel
+
+?>
 
 
 
