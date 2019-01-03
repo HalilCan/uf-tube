@@ -38,7 +38,6 @@ class VideoGrid {
         
         $elementsHtml = "";
         while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-
             $video = new Video($this->con, $row, $this->userLoggedInObj);
             $item = new VideoGridItem($video, $this->largeMode);
             $elementsHtml .= $item->create();
@@ -54,6 +53,16 @@ class VideoGrid {
             $elementsHtml .= $item->create();
         }
         return $elementsHtml;
+    }
+
+    public function generateVideosFromUser($user, $maxNum) {
+        $query = $this->con->prepare("SELECT * FROM videos WHERE uploadedBy=:uploadedBy ORDER BY RAND() LIMIT $maxNum");
+        $query->bindParam(':uploadedBy', $user);
+        $query->execute();
+        
+        while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+
+        }
     }
     
     public function createGridHeader($title, $showFilter) {
