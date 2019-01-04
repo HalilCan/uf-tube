@@ -269,8 +269,7 @@ a:hover {
 .watchRightColumn {
     max-width: 425px;
     flex-grow: 1;
-    padding-left: 24px;
-
+    padding-left: 12px;
     height: 100%;    
 }
 
