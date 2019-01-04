@@ -33,14 +33,21 @@ class SubscriptionList {
     }
 
     public function generateSideBarList() {
+        $list = "";
+        foreach($this->subList as $user) {
+            $list .= $this->generateSideBarItem($user);
+        }
 
+        return  "<div class='userList-sidebar'>
+                    $list
+                </div>";
     }
 
     public function generateSideBarItem($user) {
         $username = $user->getUsername();
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $user);
 
-        return  "<div class='UserItem-Sidebar'>
+        return  "<div class='UserItem-sidebar'>
                     <span class='profileButton'>
                         $profileButton
                     </span>
