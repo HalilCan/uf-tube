@@ -22,14 +22,22 @@ class SubscriptionList {
         return 1;
     }
 
-    public function getUsernames() {
+    public function getUsernames($length) {
+        $length = ($length == 0) ? count($this->subList) : $length;
+
         $usernames = array();
 
         foreach($this->subList as $user) {
             array_push($usernames, $user->getUsername());
         }
 
-        return $usernames;
+        return array_slice($usernames, 0, $length);
+    }
+
+    public function getUsers($length) {
+        $length = ($length == 0) ? count($this->subList) : $length;
+        
+        return array_slice($this->subList, 0, $length);
     }
 
     public function generateSideBarList() {

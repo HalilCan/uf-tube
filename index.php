@@ -3,17 +3,24 @@
 //from subscriptions
 
     //TODO: Anki list for vocabulary off of 2312
+    //TODO: Devil's Index
 
     //1. get {5} max random subscriptions, create videoGrid rows using [10] max videos for each.
     $subGridSize = 10;
-    
+
+    $subListObj = new SubscriptionList($con, $userLoggedInObj);
+    $subNames = $subListObj->getUsernames();
 
     $videoGrid = new VideoGrid($con, $userLoggedInObj);
-    $videos = $videoGrid->generateVideosFromUser($subscribedTo, $subGridSize);
     
-    $title = "$subscribedTo's videos"; //TODO: create title class for html element
+    foreach($subNames as $subscribedTo) {
+        $videos = $videoGrid->generateVideosFromUser($subscribedTo, $subGridSize);
+        $title = "$subscribedTo's videos"; //TODO: create title class for html element
+        echo $videoGrid->create($videos, null, true);
+    }
+
     
-    echo $videoGrid->create($videos, null, true);
+    
 
 
 //discover
