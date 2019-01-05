@@ -2,7 +2,8 @@
 require_once("VideoGridItem.php");
 class SubscriptionList {
 
-    private $con, $userLoggedInObj, $subList;
+    private $con, $userLoggedInObj;
+    private $subList = array();
 
     public function __construct($con, $userLoggedInObj) {
         $username = $userLoggedInObj->getUsername();
@@ -13,12 +14,10 @@ class SubscriptionList {
         $query = $this->con->prepare("SELECT * FROM subscribers WHERE userFrom=:userFrom");
         $query->bindParam(":userFrom", $username);
         $query->execute();
-
-        $usersTo = array();
         
         while($targetUsername = $query->fetch(PDO::FETCH_ASSOC)) {
-            $userTo = new User($this->con, $targetUsername);
-            array_push($usersTo, $userTo);
+            $userTo = new User($this->con, $targetUsername["userTo"]);
+            array_push($this->subList, $userTo);
         }
 
         return 1;
@@ -26,7 +25,6 @@ class SubscriptionList {
 
     public function getUsernames($length) {
         $length = ($length < 1) ? count($this->subList) : $length;
-
         $usernames = array();
 
         foreach($this->subList as $user) {
