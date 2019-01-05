@@ -7,9 +7,10 @@
 
     //1. get {5} max random subscriptions, create videoGrid rows using [10] max videos for each.
     $subGridSize = 10;
+    $maxSubRows = 5;
 
     $subListObj = new SubscriptionList($con, $userLoggedInObj);
-    $subNames = $subListObj->getUsernames();
+    $subNames = $subListObj->getUsernames($maxSubRows);
 
     $videoGrid = new VideoGrid($con, $userLoggedInObj);
     

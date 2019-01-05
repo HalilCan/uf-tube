@@ -5,11 +5,13 @@ class SubscriptionList {
     private $con, $userLoggedInObj, $subList;
 
     public function __construct($con, $userLoggedInObj) {
+        $username = $userLoggedInObj->getUsername();
+
         $this->con = $con;
         $this->userLoggedInObj = $userLoggedInObj;
 
-        $query = $this->con->prepare("SELECT * FROM subscriptions WHERE userFrom=:userFrom");
-        $query->bindParam(":userFrom", $userLoggedInObj->getUsername());
+        $query = $this->con->prepare("SELECT * FROM subscribers WHERE userFrom=:userFrom");
+        $query->bindParam(":userFrom", $username);
         $query->execute();
 
         $usersTo = array();
@@ -23,19 +25,20 @@ class SubscriptionList {
     }
 
     public function getUsernames($length) {
-        $length = ($length == 0) ? count($this->subList) : $length;
+        $length = ($length < 1) ? count($this->subList) : $length;
 
         $usernames = array();
 
         foreach($this->subList as $user) {
-            array_push($usernames, $user->getUsername());
+            $username = $user->getUsername();
+            array_push($usernames, $username);
         }
 
         return array_slice($usernames, 0, $length);
     }
 
     public function getUsers($length) {
-        $length = ($length == 0) ? count($this->subList) : $length;
+        $length = ($length < 1) ? count($this->subList) : $length;
         
         return array_slice($this->subList, 0, $length);
     }
