@@ -42,7 +42,6 @@ class VideoGrid {
             $item = new VideoGridItem($video, $this->largeMode);
             $elementsHtml .= $item->create();
         }
-
         return $elementsHtml;
     }
 
@@ -77,7 +76,7 @@ class VideoGrid {
 
     }
 
-    public function generateRowsFromSubNames($subNames, $gridSize) {
+    public function generateRowsFromSubNames($subNames, $gridSize, $header) {
         $grid = "";
 
         foreach($subNames as $subscribedTo) {
@@ -87,7 +86,11 @@ class VideoGrid {
             
             $title = "$subscribedTo's videos"; //TODO: create title class for html element
             
-            $row .= $this->create($videos, null, true);
+            $header =   "<div class='videoGridRowTitle'>
+                            $title
+                        </div>";
+
+            $row .= $this->create($videos, $header, true);
             
             $rowContainer = "<div class='videoGridRowContainer'>
                               $row

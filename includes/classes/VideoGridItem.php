@@ -22,6 +22,20 @@ class VideoGridItem {
                 </a>";
     }
 
+    public function createVertical() {
+        $thumbnail = $this->createThumbnail();
+        $details = $this->createVerticalDetails();        
+
+        $url = "watch.php?id=" . $this->video->getId();
+
+        return "<a href='$url'>
+                    <div class='videoGridItem'>
+                        $thumbnail
+                        $details
+                    </div>
+                </a>";
+    }
+
     public function createThumbnail() {
         $thumbnail = $this->video->getThumbnail();
         $duration = $this->video->getDuration();
@@ -53,6 +67,34 @@ class VideoGridItem {
                             </span>
                             <span class='date'>
                                 $uploadDate
+                            </span>
+                            <span class='viewCount'>$views views</span>
+                        </div>
+                    </div>
+                </div>";       
+    }
+
+    public function createVerticalDetails() {
+        $title = $this->video->getTitle();
+        $views = $this->video->getViews();
+
+        $uploadDate = $this->video->getUploadDate();
+        $uploadedBy = $this->video->getUploadedBy();
+        
+
+        return "<div class='videoDetails'>
+                    <h1>$title</h1>
+                    <div class='bottomSection'>
+                        <div class='uploadInfo'>
+                            <span class='firstRow'>
+                                <span class='owner'>
+                                    <a href='profile.php?username=$uploadedBy'>
+                                        $uploadedBy
+                                    </a>
+                                </span>
+                                <span class='date'>
+                                    $uploadDate
+                                </span>
                             </span>
                             <span class='viewCount'>$views views</span>
                         </div>

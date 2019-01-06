@@ -15,7 +15,7 @@
     $videoGrid = new VideoGrid($con, $userLoggedInObj);
     
     //TODO: this is missing row divs, create a class.
-    echo $videoGrid->generateRowsFromSubNames($subNames, $subGridSize);
+    echo $videoGrid->generateRowsFromSubNames($subNames, $subGridSize, null);
 
 //discover
 
