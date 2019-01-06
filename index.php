@@ -17,11 +17,6 @@
     //TODO: this is missing row divs, create a class.
     echo $videoGrid->generateRowsFromSubNames($subNames, $subGridSize);
 
-
-    
-    
-
-
 //discover
 
 //suggestions
