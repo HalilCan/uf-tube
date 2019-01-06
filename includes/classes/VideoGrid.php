@@ -77,5 +77,30 @@ class VideoGrid {
 
     }
 
+    public function generateRowsFromSubNames($subNames, $gridSize) {
+        $grid = "";
+
+        foreach($subNames as $subscribedTo) {
+            $row = "";
+            
+            $videos = $this->generateVideosFromUser($subscribedTo, $gridSize);
+            
+            $title = "$subscribedTo's videos"; //TODO: create title class for html element
+            
+            $row .= $this->create($videos, null, true);
+            
+            $rowContainer = "<div class='videoGridRowContainer'>
+                              $row
+                            </div>";
+            $grid .= $rowContainer;
+        }
+
+        $gridContainer = "<div class='videoGridContainer'>
+                            $grid
+                        </div>";
+
+        return $gridContainer;
+    }
+
 }
 ?>

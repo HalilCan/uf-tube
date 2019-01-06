@@ -14,11 +14,9 @@
 
     $videoGrid = new VideoGrid($con, $userLoggedInObj);
     
-    foreach($subNames as $subscribedTo) {
-        $videos = $videoGrid->generateVideosFromUser($subscribedTo, $subGridSize);
-        $title = "$subscribedTo's videos"; //TODO: create title class for html element
-        echo $videoGrid->create($videos, null, true);
-    }
+    //TODO: this is missing row divs, create a class.
+    echo $videoGrid->generateRowsFromSubNames($subNames, $subGridSize);
+
 
     
     
