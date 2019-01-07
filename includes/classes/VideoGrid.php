@@ -85,12 +85,8 @@ class VideoGrid {
             $videos = $this->generateVideosFromUser($subscribedTo, $gridSize);
             
             $title = "$subscribedTo's videos"; //TODO: create title class for html element
-            
-            $header =   "<div class='videoGridRowTitle'>
-                            $title
-                        </div>";
 
-            $row .= $this->create($videos, $header, true);
+            $row .= $this->create($videos, $title, true);
             
             $rowContainer = "<div class='videoGridRowContainer'>
                               $row

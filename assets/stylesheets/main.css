@@ -745,7 +745,7 @@ a:hover {
     display: inline-block;
     flex: 1;
     float: right;
-    margin-right: 2px;
+    margin-right: 8px;
 }
 
 #mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .viewCount {
@@ -783,4 +783,13 @@ a:hover {
     background-color: rgba(227,227,227,0.6);
     padding: 1px 2px 1px 2px;
     border-radius: 3px;
+}
+
+.videoGridRowTitle {
+    margin: 6px 0 0 12px;
+    background-color: rgba(17,17,17,0.08);
+    padding: 10px 0 10px 12px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 16px;
 }
