@@ -687,14 +687,17 @@ a:hover {
     display: inline-block;
     flex-direction: row;
     margin-bottom: 12px;
-    overflow: scroll;
+    overflow: hidden;
     overflow-wrap: none;
+    white-space: nowrap;
+    max-width: 95vw;
 }
 
 #mainContentContainer .videoGridContainer .videoGridRowContainer .videoGrid .videoGridItem {
     display: inline-block;
     flex-direction: column;
     margin-left: 2px;
+    white-space: normal;
 }
 
 #mainContentContainer a {
@@ -809,6 +812,7 @@ a:hover {
 .videoGridRowTitle .subFeedRowHideButton {
     float:  right;
     background-color: transparent;
-    font-weight: 800;
+    font-weight: 600;
     border: none;
+    color: rgba(17, 17, 17, 0.7);
 }

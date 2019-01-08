@@ -12,6 +12,11 @@ $(document).ready(() => { //jQuery executes this only when the page is fully loa
 
         main.toggleClass("mainLeftPadding");
     })
+
+    $(".subFeedRowHideButton").on("click", (event) => {
+        let button = event.currentTarget;
+        $(button).parent().parent().hide();
+    });
 });
 
 /*
