@@ -9,13 +9,16 @@ class GridHeader {
                     <span class='subFeedUserButton'>
                         $profileButton
                     </span>
-                    <a class='subFeedHeaderText' href='profile.php?username=$username'>
-                        $username
-                    </a>
-                    <button class='subFeedRowHideButton'>
+                    
+                    <span class='subFeedHeaderText'>
+                        <a href='profile.php?username=$username'>
+                            $username
+                        </a>
+                    </span>
+
+                    <button type='button' class='subFeedRowHideButton'>
                         X
                     </button>
-                    <span class='subFeed'
                 </div>";
     }
 }

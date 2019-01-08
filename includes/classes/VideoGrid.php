@@ -70,6 +70,10 @@ class VideoGrid {
     }
     
     public function createGridHeader($title, $showFilter) {
+        return $title; //TODO: make this right propah boy
+    }
+
+    public function createSubGridHeader($title, $showFilter) {
         $header = GridHeader::createSubscribedFeedHeader($this->con, $title);
         return $header;
     }
@@ -82,7 +86,7 @@ class VideoGrid {
             
             $videos = $this->generateVideosFromUser($subscribedTo, $gridSize);
             
-            $header = $this->createGridHeader($subscribedTo, false);
+            $header = $this->createSubGridHeader($subscribedTo, false);
 
             $row .= $this->create($videos, $header, true);
             
