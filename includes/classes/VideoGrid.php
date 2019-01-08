@@ -70,10 +70,8 @@ class VideoGrid {
     }
     
     public function createGridHeader($title, $showFilter) {
-        return "<div class='videoGridRowTitle'>
-                    $title
-                </div>"; //TODO: make this an actual thing lmao
-
+        $header = GridHeader::createSubscribedFeedHeader($this->con, $title);
+        return $header;
     }
 
     public function generateRowsFromSubNames($subNames, $gridSize, $header) {
@@ -84,9 +82,9 @@ class VideoGrid {
             
             $videos = $this->generateVideosFromUser($subscribedTo, $gridSize);
             
-            $title = "$subscribedTo's videos"; //TODO: create title class for html element
+            $header = $this->createGridHeader($subscribedTo, false);
 
-            $row .= $this->create($videos, $title, true);
+            $row .= $this->create($videos, $header, true);
             
             $rowContainer = "<div class='videoGridRowContainer'>
                               $row
