@@ -15,7 +15,16 @@ class GridHeader {
                             $username
                         </a>
                     </span>
-
+                    
+                    <button type='button' class='subFeedRowScrollLeftButton'>
+                    <
+                    </button>
+                    
+                    <button type='button' class='subFeedRowScrollRightButton'>
+                    >
+                    </button>
+                    
+                    
                     <button type='button' class='subFeedRowHideButton'>
                         X
                     </button>

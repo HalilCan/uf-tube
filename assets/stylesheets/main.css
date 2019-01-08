@@ -691,6 +691,8 @@ a:hover {
     overflow-wrap: none;
     white-space: nowrap;
     max-width: 95vw;
+    padding-right: 0;
+    margin-right: 0;
 }
 
 #mainContentContainer .videoGridContainer .videoGridRowContainer .videoGrid .videoGridItem {
@@ -723,8 +725,8 @@ a:hover {
     text-overflow: ellipsis;
     font-size: 16px;
     font-weight: 600;
-    line-height: 18px;
-    max-height: 36px;
+    line-height: 22px;
+    max-height: 44px;
     width: 200px;
     margin: 2px 0 4px 0;
 }
