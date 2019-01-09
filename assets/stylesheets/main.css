@@ -670,11 +670,6 @@ a:hover {
     height: 300px;
 }
 
-#mainContentContainer .videoGridContainer .videoGridRowContainer::-webkit-scrollbar {
-    width: 0 !important;
-    display: none;
-}
-
 #mainContentContainer .videoGridContainer .videoGridRowContainer .videoGridItem {
     display: flex;
     flex-flow: column;
@@ -840,13 +835,14 @@ a:hover {
     height: 36px;
     width: 36px;
     align-self: center;
-    padding: 0px 9px 4px 8px;
+    padding: 0px 8px 4px 8px;
     z-index: 7;
 }
 
-.subFeedRowScrollLeftButton {
+.videoGridRow .subFeedRowScrollLeftButton {
     position: relative;
     margin-left: 6px;
+    display: none;
 }
 
 .subFeedRowScrollRightButton {

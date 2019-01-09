@@ -15,13 +15,13 @@ $(document).ready(() => { //jQuery executes this only when the page is fully loa
 
     $(".subFeedRowHideButton").on("click", (event) => {
         let button = event.currentTarget;
-        $(button).parent().parent().hide();
+        $(button).parent().parent().parent().hide();
     });
 
     $(".subFeedRowScrollLeftButton").on("click", (event) => {
         let button = event.currentTarget;
         let oppositeButton = $(button).siblings(".subFeedRowScrollRightButton");
-        let row = $(button).parent().next();
+        let row = $(button).next();
 
         let count = $(row).children().length / 2;
         
@@ -47,7 +47,7 @@ $(document).ready(() => { //jQuery executes this only when the page is fully loa
     $(".subFeedRowScrollRightButton").on("click", (event) => {
         let button = event.currentTarget;
         let oppositeButton = $(button).siblings(".subFeedRowScrollLeftButton");
-        let row = $(button).parent().next();
+        let row = $(button).parent().prev();
 
         let count = $(row).children().length / 2;
         
