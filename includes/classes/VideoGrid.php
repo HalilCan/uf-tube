@@ -85,13 +85,27 @@ class VideoGrid {
             $row = "";
             
             $videos = $this->generateVideosFromUser($subscribedTo, $gridSize);
+            $videoCount = count($videos);
             
             $header = $this->createSubGridHeader($subscribedTo, false);
+            
+            $lb =   "<button type='button' class='subFeedRowScrollLeftButton subFeedRowScrollButton'>
+                        <
+                    </button>";
+            
+            $rb =   "<button type='button' class='subFeedRowScrollRightButton subFeedRowScrollButton'>
+                        >
+                    </button>";
+            
 
             $row .= $this->create($videos, $header, true);
             
-            $rowContainer = "<div class='videoGridRowContainer'>
-                              $row
+            $rowContainer = "<div class='videoGridRow'>
+                            $lb
+                                <div class='videoGridRowContainer'>
+                                $row
+                                </div>
+                            $rb
                             </div>";
             $grid .= $rowContainer;
         }

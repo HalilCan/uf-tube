@@ -53,8 +53,9 @@ a:hover {
 #mainContentContainer {
     flex: 1;
     display: flex;
-    padding: 10px 30px;
-    box-sizing: border-box
+    box-sizing: border-box;
+    justify-content: center;
+    justify-items: center;
 }
 
 #mainContentContainer form {
@@ -650,7 +651,6 @@ a:hover {
 
 #mainContentContainer .videoGridContainer {
     display: flex;
-    flex: 1;
     flex-direction: column;
 }
 
@@ -658,6 +658,15 @@ a:hover {
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
+    height: 300px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 90vw;
+}
+
+#mainContentContainer .videoGridContainer .videoGridRow {
+    display: flex;
+    flex-flow: row nowrap;
     height: 300px;
 }
 
@@ -690,7 +699,7 @@ a:hover {
     overflow: hidden;
     overflow-wrap: none;
     white-space: nowrap;
-    max-width: 95vw;
+    width: auto;
     padding-right: 0;
     margin-right: 0;
 }
@@ -819,8 +828,8 @@ a:hover {
     color: rgba(17, 17, 17, 0.7);
 }
 
-.videoGridRowTitle .subFeedRowScrollButton {
-    background-color: transparent;
+.videoGridRow .subFeedRowScrollButton {
+    background-color: whitesmoke;
     font-weight: 800;
     border: 2px solid rgba(17, 17, 17, 0.5);
     border-radius: 50%;
@@ -828,5 +837,19 @@ a:hover {
     
     display: inline-block;
     
+    height: 36px;
+    width: 36px;
+    align-self: center;
     padding: 0px 8px 2px 8px;
+    z-index: 7;
+}
+
+.subFeedRowScrollLeftButton {
+    position: relative;
+    margin-left: 6px;
+}
+
+.subFeedRowScrollRightButton {
+    position: relative;
+    margin-right: 6px;
 }

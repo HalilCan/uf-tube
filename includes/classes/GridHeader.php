@@ -16,15 +16,6 @@ class GridHeader {
                         </a>
                     </span>
                     
-                    <button type='button' class='subFeedRowScrollLeftButton subFeedRowScrollButton'>
-                    <
-                    </button>
-                    
-                    <button type='button' class='subFeedRowScrollRightButton subFeedRowScrollButton'>
-                    >
-                    </button>
-                    
-                    
                     <button type='button' class='subFeedRowHideButton'>
                         X
                     </button>
