@@ -24,15 +24,20 @@ $(document).ready(() => { //jQuery executes this only when the page is fully loa
         let row = $(button).parent().next();
 
         let count = $(row).children().length / 2;
+        
         let windowWidth = parseInt($(window).width());
         let windowMaxCount = Math.floor(windowWidth / 210);
+        
         //TODO: in the first place, only show buttons if count > WMC
+        
         let marginLeft = parseInt($(row).css('marginLeft'));
-        if (marginLeft > 210 * (count - 1) || marginLeft + (count + 2) * 210 > windowWidth) {
+        
+        if (marginLeft <= 0 || marginLeft + (count + 2) * 210 > windowWidth) {
             $(button).hide();
         }  else {
             $(oppositeButton).show();
         } 
+
         console.log(marginLeft);
         marginLeft += 210;
 
@@ -43,9 +48,12 @@ $(document).ready(() => { //jQuery executes this only when the page is fully loa
         let button = event.currentTarget;
         let oppositeButton = $(button).siblings(".subFeedRowScrollLeftButton");
         let row = $(button).parent().next();
+
+        let count = $(row).children().length / 2;
         
         let marginLeft = parseInt($(row).css('marginLeft'));
-        if (marginLeft <= 0) {
+        
+        if (marginLeft > 210 * (count - 1)) {
             $(button).hide();
         } else {
             $(oppositeButton).show();
@@ -56,6 +64,13 @@ $(document).ready(() => { //jQuery executes this only when the page is fully loa
         $(row).css('marginLeft', marginLeft + 'px');
     });
     
+    /****** Determine whether or not to show subFeedScroll buttons ******/
+        let windowWidth = parseInt($(window).width());
+        let windowMaxCount = Math.floor(windowWidth / 210);
+        
+        let leftButtons = $(".subFeedScrollLeftButton");
+        let rightButtons = $(".subFeedScrollRightButton");
+
 });
 
 /*
