@@ -660,7 +660,7 @@ a:hover {
     flex: 1;
     height: 300px;
     overflow: hidden;
-    max-width: 800px;
+    max-width: 840px;
     width: 90vw;
 }
 
@@ -840,7 +840,7 @@ a:hover {
     height: 36px;
     width: 36px;
     align-self: center;
-    padding: 0px 8px 2px 8px;
+    padding: 0px 9px 4px 8px;
     z-index: 7;
 }
 
