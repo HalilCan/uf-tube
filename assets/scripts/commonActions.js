@@ -23,6 +23,8 @@ $(document).ready(() => { //jQuery executes this only when the page is fully loa
         let oppositeButton = $(button).siblings(".subFeedRowScrollRightButton");
         let row = $(button).next();
 
+        $(row).animate()
+
         let count = $(row).children().length / 2;
         
         let windowWidth = parseInt($(window).width());

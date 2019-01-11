@@ -840,12 +840,10 @@ a:hover {
 }
 
 .videoGridRow .subFeedRowScrollLeftButton {
-    position: relative;
     margin-left: 6px;
     display: none;
 }
 
 .subFeedRowScrollRightButton {
-    position: relative;
     margin-right: 6px;
 }
