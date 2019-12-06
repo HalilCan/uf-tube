@@ -49,7 +49,7 @@ class VideoGrid {
     public function generateItemsFromVideos($videos) {
         $elementsHtml = "";
         foreach($videos as $video) {
-            $item = new VideoGridItem($video, $this->largeModee, $this->maxLen);
+            $item = new VideoGridItem($video, $this->largeMode, $this->maxLen);
             $elementsHtml .= $item->create();
         }
         return $elementsHtml;

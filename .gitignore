@@ -6,6 +6,7 @@
 uploads/
 ffmpeg/
 *.mp4
+*.jpg
 
 # User-specific files
 *.suo

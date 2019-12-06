@@ -21,3 +21,8 @@ $user = new User($con, $username);
 ?>
 
 <?php require_once("includes/footer.php");?>
+
+<body>
+    WELL HELLO
+
+</body>
