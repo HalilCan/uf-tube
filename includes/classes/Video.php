@@ -42,7 +42,7 @@ class Video {
         return $this->sqlData["description"];
     }
 
-    public function getAbbrevDescription($maxLen) {
+    public function getAbbrevDesc($maxLen) {
         $desc = $this->sqlData["description"];
         return mb_strimwidth($desc, 0, $maxLen, "...");
     }
@@ -70,6 +70,7 @@ class Video {
     }
 
     public function getLikes() {
+        $videoId = 0;
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE videoID=:videoId");
         $query->bindParam(":videoId", $videoId);
         $videoId = $this->getId();
@@ -80,6 +81,7 @@ class Video {
     }
 
     public function getDislikes() {
+        $videoId = 0;
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM dislikes WHERE videoID=:videoId");
         $query->bindParam(":videoId", $videoId);
         $videoId = $this->getId();
@@ -94,6 +96,7 @@ class Video {
     }
 
     public function incrementViews() {
+        $videoId = 0;
         $query = $this->con->prepare("UPDATE videos SET views=views+1 WHERE id=:id");
         $query->bindParam(":id", $videoId);
 
@@ -176,6 +179,7 @@ class Video {
     }
 
     public function wasLikedBy() {
+        $username = 0;
         $id = $this->getId();
         $query = $this->con->prepare("SELECT * FROM likes WHERE username=:username AND videoId=:videoId");
         $query->bindParam(":username", $username);
@@ -188,6 +192,7 @@ class Video {
     }
 
     public function wasDislikedBy() {
+        $username = 0;
         $id = $this->getId();
         $query = $this->con->prepare("SELECT * FROM dislikes WHERE username=:username AND videoId=:videoId");
         $query->bindParam(":username", $username);
@@ -200,6 +205,7 @@ class Video {
     }
 
     public function getNumberOfComments() {
+        $id = 0;
         $query = $this->con->prepare("SELECT * FROM comments WHERE videoId=:videoId");
         $query->bindParam(":videoId", $id);
         $id = $this->getId();
@@ -209,6 +215,7 @@ class Video {
     }
 
     public function getComments() {
+        $id = 0;
         $query = $this->con->prepare("SELECT * FROM comments WHERE videoId=:videoId AND responseTo=0 ORDER BY datePosted DESC");
         $query->bindParam(":videoId", $id);
 
@@ -227,6 +234,7 @@ class Video {
     }
     
     public function getThumbnail() {
+        $videoId = 0;
         $query = $this->con->prepare("SELECT filePath FROM thumbnails WHERE videoId=:videoId AND selected=1");
         $query->bindParam(":videoId", $videoId);
         $videoId = $this->getId();
