@@ -3,9 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-.uploads/
-.ffmpeg/
-/uploads
+uploads/
+ffmpeg/
+*.mp4
 
 # User-specific files
 *.suo
