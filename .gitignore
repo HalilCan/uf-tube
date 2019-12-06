@@ -5,6 +5,7 @@
 
 .uploads/
 .ffmpeg/
+/uploads
 
 # User-specific files
 *.suo

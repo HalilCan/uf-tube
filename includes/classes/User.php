@@ -20,6 +20,10 @@ class User {
     public function getUsername() {
         return $this->sqlData["username"];
     }
+
+    public function getId() {
+        return $this->sqlData["id"];
+    }
  
     public function getName() {
         return $this->sqlData["firstName"] . " " . $this->sqlData["lastName"];

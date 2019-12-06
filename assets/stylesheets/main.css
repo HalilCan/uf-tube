@@ -56,6 +56,10 @@ a:hover {
     box-sizing: border-box;
     justify-content: center;
     justify-items: center;
+    
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 0;
 }
 
 #mainContentContainer form {

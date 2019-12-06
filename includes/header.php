@@ -5,6 +5,7 @@ require_once("includes/classes/User.php");
 require_once("includes/classes/Video.php"); 
 require_once("includes/classes/VideoGrid.php"); 
 require_once("includes/classes/SubscriptionList.php");
+require_once("includes/classes/DiscoverList.php");
 require_once("includes/classes/GridHeader.php");
 
 $usernameLoggedIn = User::isLoggedIn() ? $_SESSION["userLoggedIn"] : "" ;
@@ -58,7 +59,9 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
         </div>
 
         <div id="sideNavContainer" style="display: none;">
-            sideNav
+            <div class="subList">
+
+            </div>
             
             <?php 
 
