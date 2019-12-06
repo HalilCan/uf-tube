@@ -9,10 +9,11 @@ class VideoInfoSection {
         $this->con = $con;
         $this->video = $video;
         $this->userLoggedInObj = $userLoggedInObj;
+        $this->maxDescLen = 50;
     }
 
     public function create() {
-        return $this->createPrimaryInfo() . $this->createSecondaryInfo();
+        return $this->createPrimaryInfo() . $this->createSecondaryInfo(0);
     }
 
     private function createPrimaryInfo() {
@@ -31,8 +32,13 @@ class VideoInfoSection {
                 </div>";
     }
     
-    private function createSecondaryInfo() {
-        $description = $this->video->getDescription();
+    private function createSecondaryInfo($isFullDesc) {
+        if ($isFullDesc) {
+            $description = $this->video->getDescription();
+        } else {
+            $description = $this->video->getAbbrevDescription($this->maxDescLen);
+        }
+        
         $uploadDate = $this->video->getUploadDate();
         $uploadedBy = $this->video->getUploadedBy();
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $uploadedBy);

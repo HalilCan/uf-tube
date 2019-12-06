@@ -33,9 +33,20 @@ class Video {
         return $this->sqlData["title"];
     }
 
+    public function getAbbrevTitle($maxLen) {
+        $title = $this->sqlData["title"];
+        return mb_strimwidth($title, 0, $maxLen, "...");
+    }
+
     public function getDescription() {
         return $this->sqlData["description"];
     }
+
+    public function getAbbrevDescription($maxLen) {
+        $desc = $this->sqlData["description"];
+        return mb_strimwidth($desc, 0, $maxLen, "...");
+    }
+
  
     public function getPrivacy() {
         return $this->sqlData["privacy"];

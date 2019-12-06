@@ -37,7 +37,8 @@ $video->incrementViews();
 
 <div class = "watchRightColumn suggestions">
     <?php
-        $videoGrid = new VideoGrid($con, $userLoggedInObj);
+        $maxThumbTextLen = 50;
+        $videoGrid = new VideoGrid($con, $userLoggedInObj, $maxThumbTextLen);
         echo $videoGrid->create(null, null, false);
     ?>
 </div>

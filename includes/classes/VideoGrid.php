@@ -6,9 +6,10 @@ class VideoGrid {
     private $largeMode = false;
     private $gridClass = "videoGrid";
 
-    public function __construct($con, $userLoggedInObj) {
+    public function __construct($con, $userLoggedInObj, $maxLen) {
         $this->con = $con;
         $this->userLoggedInObj = $userLoggedInObj;
+        $this->maxLen = $maxLen;
     }
 
     public function create($videos, $title, $showFilter) {
@@ -39,7 +40,7 @@ class VideoGrid {
         $elementsHtml = "";
         while($row = $query->fetch(PDO::FETCH_ASSOC)) {
             $video = new Video($this->con, $row, $this->userLoggedInObj);
-            $item = new VideoGridItem($video, $this->largeMode);
+            $item = new VideoGridItem($video, $this->largeMode, $this->maxLen);
             $elementsHtml .= $item->create();
         }
         return $elementsHtml;
@@ -48,7 +49,7 @@ class VideoGrid {
     public function generateItemsFromVideos($videos) {
         $elementsHtml = "";
         foreach($videos as $video) {
-            $item = new VideoGridItem($video, $this->largeMode);
+            $item = new VideoGridItem($video, $this->largeModee, $this->maxLen);
             $elementsHtml .= $item->create();
         }
         return $elementsHtml;

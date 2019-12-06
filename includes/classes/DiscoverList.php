@@ -12,10 +12,12 @@ class DiscoverList {
         $this->con = $con;
         $this->userLoggedInObj = $userLoggedInObj;
 
+        //choose at most 15 random users who are not the current user
         $query = $this->con->prepare("SELECT * FROM users WHERE id!=:uid ORDER BY RAND() LIMIT 15");
         $query->bindParam(":uid", $uid);
         $query->execute();
         
+        //get each row in while loop, create new User objs for each username, push objects to discUserList array
         while($someUser = $query->fetch(PDO::FETCH_ASSOC)) {
             $userObj = new User($this->con, $someUser["username"]);
             array_push($this->discUserList, $userObj);

@@ -641,14 +641,29 @@ a:hover {
     width: 100%;
 }
 
+.thumbnail .duration {
+    color: whitesmoke;    
+    display: block;
+}
+
+.thumbnail .duration span {
+    background-color:#464646;
+    padding-left: 2px;
+    padding-right: 1px; 
+    border-radius: 2px;
+    padding-bottom: 1px;
+}
+
 .suggestions .videoGrid .videoGridItem .thumbnail .duration {
     line-height: 0;
     position: relative;
-    bottom: 12px;
-    left: 3px;
+    bottom: 14px;
     padding: 0;
-    display: inline-block;
+    color: whitesmoke;
+    display: block;
+    margin-left: 2px;
 }
+
 
 /******* Main page VideoGrid *******/
 

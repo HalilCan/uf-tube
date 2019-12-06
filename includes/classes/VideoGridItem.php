@@ -3,9 +3,10 @@
 class VideoGridItem {
     private $video, $largeMode;
 
-    public function __construct($video, $largeMode) {
+    public function __construct($video, $largeMode, $maxTitleLen) {
         $this->video = $video;
         $this->largeMode = $largeMode;
+        $this->maxTitleLen = $maxTitleLen;
     }
 
     public function create() {
@@ -49,13 +50,12 @@ class VideoGridItem {
     }
     
     public function createDetails() {
-        $title = $this->video->getTitle();
+        $title = $this->video->getAbbrevTitle($this->maxTitleLen);
         $views = $this->video->getViews();
 
         $uploadDate = $this->video->getUploadDate();
         $uploadedBy = $this->video->getUploadedBy();
         
-
         return "<div class='videoDetails'>
                     <h1>$title</h1>
                     <div class='bottomSection'>
@@ -81,7 +81,6 @@ class VideoGridItem {
         $uploadDate = $this->video->getUploadDate();
         $uploadedBy = $this->video->getUploadedBy();
         
-
         return "<div class='videoDetails'>
                     <h1>$title</h1>
                     <div class='bottomSection'>
