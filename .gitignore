@@ -7,6 +7,7 @@ uploads/
 ffmpeg/
 *.mp4
 *.jpg
+bfg-1.13.0.jar
 
 # User-specific files
 *.suo
