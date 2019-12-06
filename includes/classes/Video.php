@@ -41,10 +41,10 @@ class Video {
     public function getDescription() {
         return $this->sqlData["description"];
     }
-
-    public function getAbbrevDesc($maxLen) {
+    
+    public function getAbbrevDescription($maxLen) {
         $desc = $this->sqlData["description"];
-        return mb_strimwidth($desc, 0, $maxLen, "...");
+        return mb_strimwidth($desc, 0, $maxLen, "");
     }
 
  

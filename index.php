@@ -10,16 +10,18 @@
     $maxSubRows = 5;
     $maxThumbnailTextLen = 20;
 
-    $subListObj = new SubscriptionList($con, $userLoggedInObj);
-    $subNames = $subListObj->getUsernames($maxSubRows);
-
-    $videoGrid = new VideoGrid($con, $userLoggedInObj, $maxThumbnailTextLen);
+    if (isset($_SESSION["userLoggedIn"])) {
+        $subListObj = new SubscriptionList($con, $userLoggedInObj);
+        $subNames = $subListObj->getUsernames($maxSubRows);
     
-    //TODO: this is missing row divs, create a class.
-    echo $videoGrid->generateRowsFromSubNames($subNames, $subGridSize, null);
+        $videoGrid = new VideoGrid($con, $userLoggedInObj, $maxThumbnailTextLen);
+        
+        //TODO: this is missing row divs, create a class.
+        echo $videoGrid->generateRowsFromSubNames($subNames, $subGridSize, null);
+    }
 
 //discover
-    
+
     $discoverListObj = new DiscoverList($con, $userLoggedInObj);
     $discSubNames = $discoverListObj->getUsernames($maxSubRows);
     

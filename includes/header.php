@@ -10,7 +10,7 @@ require_once("includes/classes/GridHeader.php");
 
 $usernameLoggedIn = User::isLoggedIn() ? $_SESSION["userLoggedIn"] : "" ;
 $userLoggedInObj = new User($con, $usernameLoggedIn);
-$profileLink = ($usernameLoggedIn == "") ? "signIn.php" : "profile.php"; 
+$profileLink = ($usernameLoggedIn == "") ? "signIn.php" : "profile.php?username=" . $usernameLoggedIn;; 
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +53,7 @@ $profileLink = ($usernameLoggedIn == "") ? "signIn.php" : "profile.php";
                 <a href="upload.php">
                     <img class="upload" src="assets/images/icons/upload.png">
                 </a>
-                <a href=<?php return $profileLink;?>>
+                <a href= <?php echo "$profileLink"?> >
                     <img class="upload" src="assets/images/profilePictures/default.png">
                 </a>
             </div>

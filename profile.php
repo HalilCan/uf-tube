@@ -1,28 +1,22 @@
 <?php require_once("includes/header.php");
 
-if(!isset($_GET["id"])) {
-    echo "No url passed to the page!";
-    exit();
+$username = "";
+
+if(!isset($_GET["username"])) {
+    // handle /profile.php?username=username vs /profile.php
+    if (isset($_SESSION["userLoggedIn"])) {
+        $username = $_SESSION["userLoggedIn"];
+        header("Location: profile.php?username=" . $username);
+    } else {
+        // redirect to homepage if no profile available
+        header("Location: index.php");
+    }
+} else {
+    $username = $_GET["username"];
 }
-
-/**** Get user data from db, create user object from username ****/
-/*
-$query = ("SELECT FROM users WHERE id=:userId");
-$query->bindParam(":userId", $uid);
-$query->execute();
-
-$userRow = $query->fetch(PDO::FETCH_ASSOC);
-$username = $userRow["username"];
-*/
-$username = $_GET["id"];
 $user = new User($con, $username);
 
-
+echo "WELL HELLO, " . $username;
 ?>
 
 <?php require_once("includes/footer.php");?>
-
-<body>
-    WELL HELLO
-
-</body>

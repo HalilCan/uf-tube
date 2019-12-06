@@ -31,14 +31,17 @@ class VideoInfoSection {
                     </div>
                 </div>";
     }
-    
+
     private function createSecondaryInfo($isFullDesc) {
         if ($isFullDesc) {
             $description = $this->video->getDescription();
+            $fullDescription = $description;
         } else {
             $description = $this->video->getAbbrevDescription($this->maxDescLen);
+            $fullDescription = $this->video->getDescription();
         }
-        
+        $ellipsis = (strlen($description) < strlen($fullDescription)) ? "..." : ""; 
+
         $uploadDate = $this->video->getUploadDate();
         $uploadedBy = $this->video->getUploadedBy();
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $uploadedBy);
@@ -66,9 +69,16 @@ class VideoInfoSection {
                         $actionButton
                     </div>
                     <div class='descriptionContainer'>
-                        $description
+                        <p class='videoDescription'> " . $description . $ellipsis . " </p>
+                        <p class = 'hiddenDescription videoDescription')'> $fullDescription </p>
                     </div>
                 </div>";
+    }
+
+    public function expandDescription() {
+        $description = $this->video->getDescription();
+        $description = substr($description, $this->maxDescLen);
+        echo $description;
     }
 }
 

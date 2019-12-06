@@ -73,6 +73,17 @@ $(document).ready(() => { //jQuery executes this only when the page is fully loa
         let leftButtons = $(".subFeedScrollLeftButton");
         let rightButtons = $(".subFeedScrollRightButton");
 
+    //////////////////////////////////////////////////////////////////////
+
+    $(".videoDescription").on("click", (event) => {
+        let oldDesc = event.currentTarget;
+        let newDesc = $(oldDesc).siblings(".videoDescription");
+
+        $(oldDesc).toggleClass("hiddenDescription");
+        $(newDesc).toggleClass("hiddenDescription");
+
+        return 1;
+    });
 });
 
 /*
@@ -88,6 +99,8 @@ let toggleSidebar = () => {
     }
 }  
 */
+
+
 
 function notSignedIn() {
     alert("You must be signed in to do this");

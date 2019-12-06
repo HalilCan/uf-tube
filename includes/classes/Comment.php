@@ -68,6 +68,7 @@ class Comment {
     }
 
     public function getNumberOfReplies() {
+        $id = 0;
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM comments WHERE responseTo=:responseTo");
         $query->bindParam(":responseTo", $id);
         $id = $this->sqlData["id"];
@@ -77,6 +78,7 @@ class Comment {
     }
 
     public function getLikes() {
+        $commentId = 0;
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE commentId=:commentId");
         $query->bindParam(":commentId", $commentId);
         $commentId = $this->getId();
@@ -105,6 +107,7 @@ class Comment {
 
     public function wasLikedBy() {
         $id = $this->getId();
+        $username = "";
         $query = $this->con->prepare("SELECT * FROM likes WHERE username=:username AND commentId=:commentId");
         $query->bindParam(":username", $username);
         $query->bindParam(":commentId", $id);
@@ -117,6 +120,7 @@ class Comment {
 
     public function wasDislikedBy() {
         $id = $this->getId();
+        $username = "";
         $query = $this->con->prepare("SELECT * FROM dislikes WHERE username=:username AND commentId=:commentId");
         $query->bindParam(":username", $username);
         $query->bindParam(":commentId", $id);
@@ -213,6 +217,7 @@ class Comment {
     }
 
     public function getReplies() {
+        $id = 0;
         $query = $this->con->prepare("SELECT * FROM comments WHERE responseTo=:commentId ORDER BY datePosted ASC");
         $query->bindParam(":commentId", $id);
 

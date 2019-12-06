@@ -101,12 +101,11 @@ class VideoGrid {
 
             $row .= $this->create($videos, $header, true);
             
+            //NOTE: removed lb and rb because unnecessary work
             $rowContainer = "<div class='videoGridRow'>
-                            $lb
                                 <div class='videoGridRowContainer'>
                                 $row
                                 </div>
-                            $rb
                             </div>";
             $grid .= $rowContainer;
         }
