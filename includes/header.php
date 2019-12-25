@@ -7,11 +7,12 @@ require_once("includes/classes/VideoGrid.php");
 require_once("includes/classes/SubscriptionList.php");
 require_once("includes/classes/DiscoverList.php");
 require_once("includes/classes/GridHeader.php");
+require_once("includes/classes/Leftbar.php");
 
 $usernameLoggedIn = User::isLoggedIn() ? $_SESSION["userLoggedIn"] : "" ;
 $userLoggedInObj = new User($con, $usernameLoggedIn);
 $profileLink = ($usernameLoggedIn == "") ? "signIn.php" : "profile.php?username=" . $usernameLoggedIn;
-$leftbar = new Leftbar($userLoggedInObj);
+$leftbar = new Leftbar($con, $userLoggedInObj);
 ?>
 <!DOCTYPE html>
 <html>

@@ -334,3 +334,6 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+.git.bfg-report/2019-12-06/07-00-10/cache-stats.txt
+.git.bfg-report/2019-12-06/07-00-10/deleted-files.txt
+.git.bfg-report/2019-12-06/07-00-10/object-id-map.old-new.txt

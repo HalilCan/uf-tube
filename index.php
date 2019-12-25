@@ -1,5 +1,7 @@
 <?php require_once("includes/header.php");
-
+    $subListElem = "";
+    $discoverListElem = "";
+    $suggestionListElem = "";
 //from subscriptions
 
     //TODO: Anki list for vocabulary off of 2312
@@ -17,7 +19,7 @@
         $videoGrid = new VideoGrid($con, $userLoggedInObj, $maxThumbnailTextLen);
         
         //TODO: this is missing row divs, create a class.
-        echo $videoGrid->generateRowsFromSubNames($subNames, $subGridSize, null);
+        $subListElem = $videoGrid->generateRowsFromSubNames($subNames, $subGridSize, null);
     }
 
 //discover
@@ -28,12 +30,15 @@
     $videoGrid = new VideoGrid($con, $userLoggedInObj, $maxThumbnailTextLen);
 
     //TODO: this is missing row divs, create a class. (2019: apparently)
-    echo $videoGrid->generateRowsFromSubNames($discSubNames, $subGridSize, null);
+    $discoverListElem = $videoGrid->generateRowsFromSubNames($discSubNames, $subGridSize, null);
     
 //suggestions
 
-//subscriptions, channel by channel
-
+    echo    "<div id='indexVideoGridContainer'>
+                $subListElem
+                $discoverListElem
+                $suggestionListElem
+            </div>";
 ?>
 
 <?php require_once("includes/footer.php");?>

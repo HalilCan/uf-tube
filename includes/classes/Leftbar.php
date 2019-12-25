@@ -1,10 +1,10 @@
 <?php
 require_once("VideoGridItem.php");
-require_once("")
-class SubscriptionList {
+class Leftbar {
 
     private $con, $userLoggedInObj;
-    private $subList = array();
+    private $subList = array(), $catList = array();
+    public $content;
 
     public function __construct($con, $userLoggedInObj) {
         $username = $userLoggedInObj->getUsername();
@@ -16,12 +16,20 @@ class SubscriptionList {
         $query->bindParam(":userFrom", $username);
         $query->execute();
         
-        while($targetUsername = $query->fetch(PDO::FETCH_ASSOC)) {
-            $userTo = new User($this->con, $targetUsername["userTo"]);
+        while($subEntry = $query->fetch(PDO::FETCH_ASSOC)) {
+            $userTo = new User($this->con, $subEntry["userTo"]);
             array_push($this->subList, $userTo);
         }
 
-        return 1;
+        $query = $this->con->prepare("SELECT * FROM categories");
+        $query->execute();
+        
+        while($category = $query->fetch(PDO::FETCH_ASSOC)) {
+            array_push($this->catList, $category["name"]);
+        }
+
+        $this->content = $this->generateSideBarList();
+        return 0;
     }
 
     public function getUsernames($length) {
@@ -38,24 +46,50 @@ class SubscriptionList {
 
     public function getUsers($length) {
         $length = ($length < 1) ? count($this->subList) : $length;
-        
+     
         return array_slice($this->subList, 0, $length);
     }
 
     public function generateSideBarList() {
-        $list = "";
+        $subElemList = "";
+        $someSub = 0;
         foreach($this->subList as $user) {
-            $list .= $this->generateSideBarItem($user);
+            $subElemList .= $this->generateSideBarItem($user);
+            $someSub = 1;
+        }
+
+        if ($someSub == 0) {
+            $subElemList = "You don't have any subscriptions!";    
+        }
+
+        $catElemList = "";
+        foreach($this->catList as $category) {
+            $catElemList .= $this->generateCategoryItem($category);
         }
 
         return  "<div class='userList-sidebar'>
-                    $list
+                    <div class='categoryListContainer'>
+                        <div class='categoryListHeader'>
+                            Categories
+                        </div>
+                        <div class='categoryList'>
+                            $catElemList
+                        </div>
+                    </div>
+                    <div class='subListContainer'>
+                        <div class='subscriptionListHeader'>
+                            Subscriptions
+                        </div>
+                        <div class='subscriptionList'>
+                            $subElemList
+                        </div>
+                    </div>
                 </div>";
     }
 
     public function generateSideBarItem($user) {
         $username = $user->getUsername();
-        $profileButton = ButtonProvider::createUserProfileButton($this->con, $user);
+        $profileButton = ButtonProvider::createUserProfileButton($this->con, $username);
 
         return  "<div class='UserItem-sidebar'>
                     <span class='profileButton'>
@@ -64,6 +98,16 @@ class SubscriptionList {
                     <span class='username'>
                         <a href='profile.php?username=$username'>
                             $username
+                        </a>
+                    </span>
+                </div>";
+    }
+
+    public function generateCategoryItem($category) {
+        return  "<div class='categoryItem-sidebar'>
+                    <span class='categoryButton'>
+                        <a href='category.php?category=$category'>
+                            $category
                         </a>
                     </span>
                 </div>";

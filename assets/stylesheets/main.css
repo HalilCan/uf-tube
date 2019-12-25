@@ -45,12 +45,8 @@ a:hover {
     flex-direction: column;
 }
 
-#mainSectionContainer {
-    padding-top: 56px;
-    display: flex;
-}
-
 #mainContentContainer {
+    padding-top: 56px;
     flex: 1;
     display: flex;
     box-sizing: border-box;
@@ -61,6 +57,10 @@ a:hover {
     margin-right: 1vw;
     margin-top: 0;
 }
+
+#mainContentContainer .videoGridContainer .videoGridRow {
+    justify-content: center;
+  }
 
 #mainContentContainer form {
     width: 100%;
@@ -147,7 +147,7 @@ a:hover {
 
 #mastHeadContainer .searchBarContainer .searchButton img {
     height: 20px;
-    width: 20px;
+    width: 18px;
     
     margin-bottom: auto;
 }
@@ -872,3 +872,110 @@ a:hover {
 .subFeedRowScrollRightButton {
     margin-right: 6px;
 }
+
+
+/* Left navbar subscription item styling */
+
+/* Element | http://localhost/ufTube/index.php */
+
+.userList-sidebar {
+    display: block;
+    margin: 4px;
+  }
+  
+  /* Element | http://localhost/ufTube/index.php */
+  
+  .UserItem-sidebar {
+    display: grid;
+    position: relative;
+    grid-template-columns: 45px auto;
+  }
+  
+  /* Element | http://localhost/ufTube/index.php */
+  
+  .UserItem-sidebar .profileButton {
+    display: flex;
+    grid-column-start: 1;
+    grid-column: ;
+    grid-column-end: 2;
+    grid-row: ;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  
+  /* Element | http://localhost/ufTube/index.php */
+  
+  .UserItem-sidebar .username {
+    display: block;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 10;
+    display: flex;
+    padding: 0;
+    overflow: hidden;
+    height: 37px;
+  }
+  
+  /* Element | http://localhost/ufTube/index.php */
+  
+  .UserItem-sidebar .profileButton > a:nth-child(1) > img:nth-child(1) {
+    height: 40px;
+  }
+  
+  /* Element | http://localhost/ufTube/index.php */
+  
+  .UserItem-sidebar .username > a:nth-child(1) {
+    align-self: center;
+  }
+
+/* Element | http://localhost/ufTube/index.php */
+
+.subscriptionListHeader {
+    margin-bottom: 3px;
+    font-weight: bolder;
+    margin-left: 2px;
+  }
+  
+/* Element | http://localhost/ufTube/index.php */
+
+#sideNavContainer .categoryListHeader {
+    font-weight: bold;
+  }
+  
+  /* Element | http://localhost/ufTube/index.php */
+  
+  #sideNavContainer .categoryListContainer {
+    margin: 2px;
+    margin-bottom: 10px;
+  }
+
+/* Inline #2 | http://localhost/ufTube/index.php */
+
+.userList-sidebar a {
+    color: #7d7777;
+  }
+  
+ #sideNavContainer .categoryList {
+    margin-left: 4px;
+   }
+   
+  /* //////////////////////////////////////////// */
+
+
+/* Fixing main page video list 
+#mainContentContainer {
+    flex-direction: column;
+    justify-self: center;
+    justify-content: ;
+  }
+  
+  #mainContentContainer .videoGridContainer {
+    justify-self: center;
+    justify-content: center;
+  }
+  
+  #mainContentContainer .videoGridContainer .videoGridRow {
+    justify-content: center;
+  }
+  
