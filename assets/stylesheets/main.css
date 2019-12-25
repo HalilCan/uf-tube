@@ -695,24 +695,27 @@ a:hover {
     height: 300px;
 }
 
-#mainContentContainer .videoGridContainer .videoGridRowContainer .videoGridItem {
+#mainContentContainer .videoGridContainer .videoGridRowContainer .videoGridItem,
+.categoryVideoList .videoGridItem {
     display: flex;
     flex-flow: column;
     flex: 1;
 }
 
-.videoGridRowContainer .videoGridItem .videoDetails {
+.videoGridRowContainer .videoGridItem .videoDetails,
+.categoryVideoList .videoGridItem .videoDetails {
     display: flex;
     flex-flow: row;
     flex: 1;
 }
 
-.videoGridRowContainer .videoGridItem .videoDetails a {
+.videoGridRowContainer .videoGridItem .videoDetails a,
+.categoryVideoList .videoGridItem .videoDetails a {
     font-size: 14px;
     font-weight: 500;
 }
 
-#mainContentContainer .videoGridContainer .videoGridRowContainer .videoGrid {
+#mainContentContainer .videoGridContainer .videoGridRowContainer .videoGrid, {
     display: inline-block;
     flex-direction: row;
     margin-bottom: 12px;
@@ -724,7 +727,8 @@ a:hover {
     margin-right: 0;
 }
 
-#mainContentContainer .videoGridContainer .videoGridRowContainer .videoGrid .videoGridItem {
+#mainContentContainer .videoGridContainer .videoGridRowContainer .videoGrid .videoGridItem,
+.categoryVideoList .videoGridItem {
     display: inline-block;
     flex-direction: column;
     margin-left: 2px;
@@ -740,14 +744,16 @@ a:hover {
     color: rgba(17, 17, 17, 1);
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails,
+.categoryVideoList .videoGridItem .videoDetails {
     display: flex;
     flex: 1;
     flex-direction: column;
     margin: 0 2px 0 2px;
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails h1 {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails h1,
+.categoryVideoList .videoGridItem .videoDetails h1 {
     display: flex;
     flex: 1;
     overflow: hidden;
@@ -760,31 +766,36 @@ a:hover {
     margin: 2px 0 4px 0;
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection,
+.categoryVideoList .videoGridItem .videoDetails .bottomSection {
     display: flex;
     flex: 1;
     flex-direction: column;    
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo,
+.categoryVideoList .videoGridItem .uploadInfo {
     display: inline-block;
     flex: 1;
     flex-direction: column;    
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .owner {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .owner,
+.categoryVideoList .videoGridItem .owner {
     display: flex;
     flex: 1;
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .date {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .date,,
+.categoryVideoList .videoGridItem .date {
     display: inline-block;
     flex: 1;
     float: right;
     margin-right: 8px;
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .viewCount {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails .bottomSection .uploadInfo .viewCount,
+.categoryVideoList .videoGridItem .viewCount {
     display: flex;
     color: rgba(17, 17, 17, 0.6);
     font-size: 16px;
@@ -792,7 +803,8 @@ a:hover {
     margin-bottom: 2px;
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail,
+.categoryVideoList .videoGridItem .thumbnail {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -802,11 +814,13 @@ a:hover {
     width: 200px;
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail img {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail img,
+.categoryVideoList .videoGridItem, .thumbnail img {
     width: 100%;
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail .duration {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail .duration,
+.categoryVideoList .videoGridItem .duration {
     line-height: 0;
     position: relative;
     bottom: 16px;
@@ -815,7 +829,8 @@ a:hover {
     display: inline-block;
 }
 
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail .duration span {
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail .duration span,
+.categoryVideoList .videoGridItem .duration span {
     background-color:#464646;
     padding: 0px 2px 1px 2px;
     border-radius: 3px;
@@ -987,7 +1002,8 @@ a:hover {
     /* max-width: 840px; */
   }
   
-  #mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail {
+  #mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail,
+  .categoryVideoList .videoGridItem .thumbnail {
     /* width: 200px; */
     width: 400px;
   }
@@ -1014,3 +1030,33 @@ a:hover {
   }
   
   /* /////////////////////////////////// */
+
+
+  /* categories styling */
+
+  .categoryVideoList .videoGridItem {
+    display: flex;
+    flex: 1;
+    margin-bottom: 5px;
+}
+
+.categoryVideoList .videoGridItem .videoDetails {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+}
+
+.categoryVideoList .videoGridItem .videoDetails a {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.categoryVideoList {
+    margin-top: 10px;
+    display: inherit;
+}
+
+.videoGridItem .uploadInfo .date {
+    float: right;
+}
+  /* ////////////////// */
