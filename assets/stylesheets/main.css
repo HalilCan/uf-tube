@@ -993,43 +993,6 @@ a:hover {
   #mainContentContainer .videoGridContainer .videoGridRow {
     justify-content: center;
   }
-  
-  /* Bringing ufTube to the 203rd decade */
-
-/* main.css | http://localhost/ufTube/assets/stylesheets/main.css */
-
-#mainContentContainer .videoGridContainer .videoGridRowContainer {
-    /* max-width: 840px; */
-  }
-  
-  #mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail,
-  .categoryVideoList .videoGridItem .thumbnail {
-    /* width: 200px; */
-    width: 400px;
-  }
-  
-  #mainContentContainer .videoGridContainer .videoGridRowContainer .videoGrid {
-    /* margin-bottom: 12px; */
-    /* padding-bottom: \\; */
-  }
-  
-  #mainContentContainer .videoGridContainer .videoGridRow {
-    height: 365px;
-  }
-  
-#mainContentContainer .videoGridContainer .videoGridRowContainer {
-    /* height: 300px; */
-    height: 360px;
-  }
-  
-/* main.css | http://localhost/ufTube/assets/stylesheets/main.css */
-
-#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails h1 {
-    /* width: 200px; */
-    width: 400px;
-  }
-  
-  /* /////////////////////////////////// */
 
 
   /* categories styling */
@@ -1060,3 +1023,46 @@ a:hover {
     float: right;
 }
   /* ////////////////// */
+  
+  /* Bringing ufTube to the 203rd decade */
+
+/* main.css | http://localhost/ufTube/assets/stylesheets/main.css */
+
+#mainContentContainer .videoGridContainer .videoGridRowContainer {
+    /* max-width: 840px; */
+  }
+
+  .videoGridRowContainer .videoGridItem .bottomSection,
+  .categoryVideoList .videoGridItem .bottomSection {
+    width: 395px;
+  }
+  
+  #mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .thumbnail,
+  .categoryVideoList .videoGridItem .thumbnail {
+    /* width: 200px; */
+    width: 400px;
+  }
+  
+  #mainContentContainer .videoGridContainer .videoGridRowContainer .videoGrid {
+    /* margin-bottom: 12px; */
+    /* padding-bottom: \\; */
+  }
+  
+  #mainContentContainer .videoGridContainer .videoGridRow {
+    height: 365px;
+  }
+  
+#mainContentContainer .videoGridContainer .videoGridRowContainer {
+    /* height: 300px; */
+    height: 360px;
+  }
+  
+/* main.css | http://localhost/ufTube/assets/stylesheets/main.css */
+
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails h1,
+.categoryVideoList .videoGridItem .videoDetails h1 {
+    /* width: 200px; */
+    width: 400px;
+  }
+  
+  /* /////////////////////////////////// */
