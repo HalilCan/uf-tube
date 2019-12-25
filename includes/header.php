@@ -10,7 +10,8 @@ require_once("includes/classes/GridHeader.php");
 
 $usernameLoggedIn = User::isLoggedIn() ? $_SESSION["userLoggedIn"] : "" ;
 $userLoggedInObj = new User($con, $usernameLoggedIn);
-$profileLink = ($usernameLoggedIn == "") ? "signIn.php" : "profile.php?username=" . $usernameLoggedIn;; 
+$profileLink = ($usernameLoggedIn == "") ? "signIn.php" : "profile.php?username=" . $usernameLoggedIn;
+$leftbar = new Leftbar($userLoggedInObj);
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,13 +61,13 @@ $profileLink = ($usernameLoggedIn == "") ? "signIn.php" : "profile.php?username=
         </div>
 
         <div id="sideNavContainer" style="display: none;">
+            
+            <?php echo $leftbar->content?>
+            
             <div class="subList">
 
             </div>
             
-            <?php 
-
-            ?>
 
         </div>
 
