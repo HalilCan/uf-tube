@@ -1006,4 +1006,11 @@ a:hover {
     height: 360px;
   }
   
+/* main.css | http://localhost/ufTube/assets/stylesheets/main.css */
+
+#mainContentContainer .videoGridRowContainer .videoGrid .videoGridItem .videoDetails h1 {
+    /* width: 200px; */
+    width: 400px;
+  }
+  
   /* /////////////////////////////////// */
