@@ -47,7 +47,7 @@ if(isSet($_POST["submitButton"])) {
         <div class="header">
             <img id="siteLogo" src="assets/images/icons/unfuckTubeLogo.png">
             <h3>Sign In</h3>
-            <span>to continue to untuckTube</span>
+            <span>to continue to unluckTube</span>
         </div>
         <div class="signUpForm signInForm">
             <form action="signIn.php" method="POST">

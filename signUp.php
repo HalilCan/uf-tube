@@ -40,7 +40,7 @@ function getInputValue($name) {
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>untuckTube</title>
+    <title>WETube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -57,7 +57,7 @@ function getInputValue($name) {
         <div class="header">
             <img id="siteLogo" src="assets/images/icons/unfuckTubeLogo.png">
             <h3>Sign Up</h3>
-            <span>to continue to untuckTube</span>
+            <span>to continue to USTube</span>
         </div>
         <div class="signUpForm signInForm">
             <form action="signUp.php" method="POST">
