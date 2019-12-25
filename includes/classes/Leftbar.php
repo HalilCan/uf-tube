@@ -25,7 +25,7 @@ class Leftbar {
         $query->execute();
         
         while($category = $query->fetch(PDO::FETCH_ASSOC)) {
-            array_push($this->catList, $category["name"]);
+            array_push($this->catList, $category);
         }
 
         $this->content = $this->generateSideBarList();
@@ -104,10 +104,12 @@ class Leftbar {
     }
 
     public function generateCategoryItem($category) {
+        $catId = $category["id"];
+        $catName = $category["name"];
         return  "<div class='categoryItem-sidebar'>
                     <span class='categoryButton'>
-                        <a href='category.php?category=$category'>
-                            $category
+                        <a href='category.php?category=$catId'>
+                            $catName
                         </a>
                     </span>
                 </div>";
