@@ -4,7 +4,7 @@ uf-tube is a YouTube clone built primarily on PHP with a MySQL database.
 
 In its next iteration, I aim to make a decentralized version.
 
-![A Video Page](/gh_images/video-page.png)
+![A Video Page](/gh_images/batmetalTube.png)
 
 ### 1.a. Current State
 uf-tube allows for account activity (sign up, sign in), uploading videos, viewing videos, subscriptions, likes, comment chains...: A long list adding up to what is superficially the functionality of contemporary YouTube.
